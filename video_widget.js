@@ -2623,11 +2623,12 @@ const createSlide = (video, index, container) => {
 	videoEl.setAttribute("data-container", container);
 	videoEl.id = `video-dynamic-${index}`;
 	videoEl.src = video.src;
-	videoEl.type = "video/mp4"
+	videoEl.type = "video/mp4";
 	videoEl.preload = "auto";
 	// videoEl.muted = true;
 	videoEl.autoplay = true;
 	// videoEl.playsinline = true;
+	videoEl.setAttribute("type", "video/mp4");
 	videoEl.setAttribute("muted", "");
 	videoEl.setAttribute("playsinline", "");
 
