@@ -7,6 +7,29 @@ const videos = widgetVideo.videosFullstar;
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
 
+
+//detect browser
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+var isFirefox = typeof InstallTrigger !== 'undefined';  // Firefox 1.0+
+var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+var isEdge = /\bEdg/.test(navigator.userAgent);
+var isIE = /Trident/.test(navigator.userAgent);
+
+// log browser to console
+if (isChrome) {
+  console.log("Chrome");
+} else if (isFirefox) {
+  console.log("Firefox");
+} else if (isSafari) {
+  console.log("Safari");
+} else if (isEdge) {
+  console.log("Edge");
+} else if (isIE) {
+  console.log("Internet Explorer");
+} else {
+  console.log("Unknown browser");
+}
+
 const addStyle = () => {
 	const style = document.createElement("style");
 	style.textContent = `
@@ -2623,14 +2646,18 @@ const createSlide = (video, index, container) => {
 	videoEl.setAttribute("data-container", container);
 	videoEl.id = `video-dynamic-${index}`;
 	videoEl.src = video.src;
-	// videoEl.type = "video/mp4";
-	videoEl.preload = "auto";
-	// videoEl.muted = true;
+	videoEl.preload = "metadata";
 	videoEl.autoplay = true;
-	// videoEl.playsinline = true;
-	videoEl.setAttribute("type", "video/mp4");
-	videoEl.setAttribute("muted", "");
-	videoEl.setAttribute("playsinline", "");
+
+	if (isSafari){
+		videoEl.setAttribute("type", "video/mp4");
+		videoEl.setAttribute("muted", "");
+		videoEl.setAttribute("playsinline", "");
+	} else {
+		videoEl.playsinline = true;
+		videoEl.muted = true;
+		videoEl.type = "video/mp4";
+	}
 
 	
 	const span = document.createElement("span");
@@ -3537,74 +3564,9 @@ const addVideoWidget = () => {
 
 addVideoWidget();
 
-const isMobile = {
-	Android: function() {
-			return navigator.userAgent.match(/Android/i);
-	},
-	BlackBerry: function() {
-			return navigator.userAgent.match(/BlackBerry/i);
-	},
-	iOS: function() {
-			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-	},
-	Opera: function() {
-			return navigator.userAgent.match(/Opera Mini/i);
-	},
-	Windows: function() {
-			return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
-	},
-	Safari: function(){
-		return navigator.userAgent.match(/Safari/i);
-
-		// var ua = navigator.userAgent.toLowerCase().indexOf('safari') != -1;
-		// if (ua.indexOf('safari') != -1) {
-		// 		if (ua.indexOf('chrome') > -1) {
-		// 				alert("1") // Chrome
-		// 		} else {
-		// 				alert("2") // Safari
-		// 		}
-		// }
-
-	},
-	any: function() {
-			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-	}
-};
-
 window.addEventListener("load", () => {
 
-	if (isMobile.Safari()) {
-		console.log("isMobile.Safari()");
-	}
-// const body = document.querySelector("body");
-// body.addEventListener("click", ()=>{
-// 	console.log("body click");
-// })
-// body.click();
-
-var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-var isFirefox = typeof InstallTrigger !== 'undefined';  // Firefox 1.0+
-var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-var isEdge = /\bEdg/.test(navigator.userAgent);
-var isIE = /Trident/.test(navigator.userAgent);
-
-// log browser to console
-if (isChrome) {
-  console.log("Chrome");
-} else if (isFirefox) {
-  console.log("Firefox");
-} else if (isSafari) {
-  console.log("Safari");
-} else if (isEdge) {
-  console.log("Edge");
-} else if (isIE) {
-  console.log("Internet Explorer");
-} else {
-  console.log("Unknown browser");
-}
-
-	
-class Components {
+	class Components {
 	constructor(selector) {
 			this.$elements = document.querySelectorAll(selector);
 	}
@@ -4252,13 +4214,6 @@ const dynamicSwiper = new Swiper(".dynamic-video-slider", {
     },
 });
 
-// dynamicVideos[0].addEventListener('click', () => {
-//   console.log("document click");
-// 	dynamicVideos[0].play();
-// });
-// dynamicVideos[0].click();
-
-// dynamicVideos[0].play();
 
 if (floatingVideos) {
     dynamicSwiper.allowTouchMove = false;
