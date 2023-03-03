@@ -4183,7 +4183,10 @@ const dynamicSwiper = new Swiper(".dynamic-video-slider", {
     },
 });
 
-dynamicVideos[0].click();
+document.addEventListener('click', () => {
+  console.log("document click");
+	dynamicVideos[0].play();
+});
 document.click();
 
 if (floatingVideos) {
