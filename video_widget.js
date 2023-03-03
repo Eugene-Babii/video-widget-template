@@ -3537,6 +3537,12 @@ const addVideoWidget = () => {
 addVideoWidget();
 
 window.addEventListener("load", () => {
+
+const body = document.querySelector("body");
+body.addEventListener("click", ()=>{
+	console.log("body click");
+})
+body.click();
 	
 class Components {
 	constructor(selector) {
