@@ -2628,8 +2628,8 @@ const createSlide = (video, index, container) => {
 	// videoEl.muted = true;
 	videoEl.autoplay = true;
 	// videoEl.playsinline = true;
-	videoEl.setAttribute("muted", true);
-	videoEl.setAttribute("playsinline", true);
+	videoEl.setAttribute("muted", "muted");
+	videoEl.setAttribute("playsinline", "playsinline");
 
 	
 	const span = document.createElement("span");
