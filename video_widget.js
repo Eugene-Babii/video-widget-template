@@ -1,4 +1,5 @@
-import Swiper from 'swiper';
+import Swiper from 'swiper/bundle';
+
 import {widgetVideo} from "./mock-data";
 
 const videos = widgetVideo.videosFullstar;
