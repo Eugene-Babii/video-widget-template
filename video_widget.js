@@ -2625,11 +2625,11 @@ const createSlide = (video, index, container) => {
 	videoEl.src = video.src;
 	videoEl.type = "video/mp4"
 	videoEl.preload = "metadata";
-	videoEl.muted = true;
+	// videoEl.muted = true;
 	videoEl.autoplay = true;
-	videoEl.playsinline = true;
-	videoEl.setAttribute("muted", "muted");
-	videoEl.setAttribute("playsinline", "playsinline");
+	// videoEl.playsinline = true;
+	videoEl.setAttribute("muted", true);
+	videoEl.setAttribute("playsinline", true);
 
 	
 	const span = document.createElement("span");
@@ -3919,6 +3919,105 @@ if (screenWidth <= 768 && widgetContainer) {
         return event.type.search("touch") !== -1 ? event.touches[0] : event;
     }
 
+		function slideAction() {
+			arrowIcon.style.transform = "rotate(0deg)";
+			galleryMediaMobile.style.transition = "none";
+			widgetHeader.style.border = "1px solid #b6c2c5";
+
+			let evt = getEvent();
+
+			let transformValue = widgetContainer.style.transform;
+			let transform = +transformValue.match(/([-0-9.]+(?=px))/)[0];
+
+			let galleryMediaHeightValue = galleryMediaMobile.style.height;
+			let galleryMediaHeight =
+					galleryMediaHeightValue.match(/([-0-9.]+(?=%))/)[0];
+
+			posY2 = posY1 - evt.clientY;
+			posY1 = evt.clientY;
+
+			if (posInit >= deviceHeight) {
+					if (posInit < posY1) {
+							allowSlide = false;
+							slideEnd();
+							return;
+					} else {
+							allowSlide = true;
+					}
+			}
+
+			if (posInit > posY1 && !widgetIsOpen) {
+					if (posY1 <= maxSlideThreshold) {
+							allowSlide = false;
+							slideEnd();
+							return;
+					} else {
+							allowSlide = true;
+					}
+			} else if (posInit > posY1 && widgetIsOpen) {
+					allowSlide = false;
+					slideEnd();
+					return;
+			} else {
+					allowSlide = true;
+			}
+
+			let newTransformValue = transform - posY2 * 0.1;
+			let newGalleryHeight = galleryMediaHeight - posY2 * 0.1;
+
+			widgetContainer.style.transform = `translateY(${newTransformValue}px)`;
+			galleryMediaMobile.style.height = `${
+					newGalleryHeight
+			}%`;
+	}
+
+	function slideEnd() {
+		posFinal = posInit - posY1;
+
+		if (posY1 < posThreshold) {
+				openWidget();
+		} else {
+				closeWidget();
+		}
+
+		if (posFinal === 0 && widgetIsOpen) {
+				closeWidget();
+		} else if (posFinal === 0 && !widgetIsOpen) {
+				openWidget();
+		}
+
+		function openWidget() {
+				arrowIcon.style.transform = "rotate(0deg)";
+				widgetHeader.style.border = "1px solid #b6c2c5";
+				widgetContainer.style.transform = "translateY(0)";
+				galleryMediaMobile.style.transition = "height .3s ease-out";
+				galleryMediaMobile.style.height = "34%";
+				videoText.forEach((text) => (text.style.bottom = "18%"));
+				galleryVideos.forEach((v) => (v.style.top = "0"));
+				swiperButtons.classList.add("widget-open");
+				widgetContainer.style.overflowY = "scroll";
+				widgetIsOpen = true;
+		}
+
+		function closeWidget() {
+				arrowIcon.style.transform = "rotate(180deg)";
+				widgetHeader.style.border = "none";
+				widgetContainer.style.transform = "translateY(0)";
+				galleryMediaMobile.style.transition = "height .3s ease out";
+				galleryMediaMobile.style.height = "87%";
+				videoText.forEach((text) => (text.style.bottom = "11%"));
+				galleryVideos.forEach((v) => (v.style.top = "5%"));
+				swiperButtons.classList.remove("widget-open");
+				widgetContainer.style.overflowY = "";
+				widgetIsOpen = false;
+		}
+
+		document.removeEventListener("touchmove", slideAction);
+		document.removeEventListener("mousemove", slideAction);
+		document.removeEventListener("touchend", slideEnd);
+		document.removeEventListener("mouseup", slideEnd);
+}
+
     function slideStart() {
         let evt = getEvent();
 
@@ -3930,104 +4029,8 @@ if (screenWidth <= 768 && widgetContainer) {
         document.addEventListener("mouseup", slideEnd);
     }
 
-    function slideAction() {
-        arrowIcon.style.transform = "rotate(0deg)";
-        galleryMediaMobile.style.transition = "none";
-        widgetHeader.style.border = "1px solid #b6c2c5";
 
-        let evt = getEvent();
 
-        let transformValue = widgetContainer.style.transform;
-        let transform = +transformValue.match(/([-0-9.]+(?=px))/)[0];
-
-        let galleryMediaHeightValue = galleryMediaMobile.style.height;
-        let galleryMediaHeight =
-            galleryMediaHeightValue.match(/([-0-9.]+(?=%))/)[0];
-
-        posY2 = posY1 - evt.clientY;
-        posY1 = evt.clientY;
-
-        if (posInit >= deviceHeight) {
-            if (posInit < posY1) {
-                allowSlide = false;
-                slideEnd();
-                return;
-            } else {
-                allowSlide = true;
-            }
-        }
-
-        if (posInit > posY1 && !widgetIsOpen) {
-            if (posY1 <= maxSlideThreshold) {
-                allowSlide = false;
-                slideEnd();
-                return;
-            } else {
-                allowSlide = true;
-            }
-        } else if (posInit > posY1 && widgetIsOpen) {
-            allowSlide = false;
-            slideEnd();
-            return;
-        } else {
-            allowSlide = true;
-        }
-
-        let newTransformValue = transform - posY2 * 0.1;
-        let newGalleryHeight = galleryMediaHeight - posY2 * 0.1;
-
-        widgetContainer.style.transform = `translateY(${newTransformValue}px)`;
-        galleryMediaMobile.style.height = `${
-            newGalleryHeight
-        }%`;
-    }
-
-    function slideEnd() {
-        posFinal = posInit - posY1;
-
-        if (posY1 < posThreshold) {
-            openWidget();
-        } else {
-            closeWidget();
-        }
-
-        if (posFinal === 0 && widgetIsOpen) {
-            closeWidget();
-        } else if (posFinal === 0 && !widgetIsOpen) {
-            openWidget();
-        }
-
-        function openWidget() {
-            arrowIcon.style.transform = "rotate(0deg)";
-            widgetHeader.style.border = "1px solid #b6c2c5";
-            widgetContainer.style.transform = "translateY(0)";
-            galleryMediaMobile.style.transition = "height .3s ease-out";
-            galleryMediaMobile.style.height = "34%";
-            videoText.forEach((text) => (text.style.bottom = "18%"));
-            galleryVideos.forEach((v) => (v.style.top = "0"));
-            swiperButtons.classList.add("widget-open");
-            widgetContainer.style.overflowY = "scroll";
-            widgetIsOpen = true;
-        }
-
-        function closeWidget() {
-            arrowIcon.style.transform = "rotate(180deg)";
-            widgetHeader.style.border = "none";
-            widgetContainer.style.transform = "translateY(0)";
-            galleryMediaMobile.style.transition = "height .3s ease out";
-            galleryMediaMobile.style.height = "87%";
-            videoText.forEach((text) => (text.style.bottom = "11%"));
-            galleryVideos.forEach((v) => (v.style.top = "5%"));
-            swiperButtons.classList.remove("widget-open");
-            widgetContainer.style.overflowY = "";
-            widgetIsOpen = false;
-        }
-
-        document.removeEventListener("touchmove", slideAction);
-        document.removeEventListener("mousemove", slideAction);
-        document.removeEventListener("touchend", slideEnd);
-        document.removeEventListener("mouseup", slideEnd);
-    }
 }
 
 const dynamicVideos = document.querySelectorAll(".video[data-dynamic]");
