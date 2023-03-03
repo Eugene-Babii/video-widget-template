@@ -4183,11 +4183,13 @@ const dynamicSwiper = new Swiper(".dynamic-video-slider", {
     },
 });
 
-dynamicVideos[0].addEventListener('click', () => {
-  console.log("document click");
-	dynamicVideos[0].play();
-});
-dynamicVideos[0].click();
+// dynamicVideos[0].addEventListener('click', () => {
+//   console.log("document click");
+// 	dynamicVideos[0].play();
+// });
+// dynamicVideos[0].click();
+
+dynamicVideos[0].play();
 
 if (floatingVideos) {
     dynamicSwiper.allowTouchMove = false;
