@@ -2625,11 +2625,11 @@ const createSlide = (video, index, container) => {
 	videoEl.src = video.src;
 	videoEl.type = "video/mp4"
 	videoEl.preload = "metadata";
-	// videoEl.muted = true;
+	videoEl.muted = true;
 	videoEl.autoplay = true;
-	// videoEl.playsinline = true;
-	videoEl.setAttribute("muted", true);
-	videoEl.setAttribute("playsinline", true);
+	videoEl.playsinline = true;
+	// videoEl.setAttribute("muted", true);
+	// videoEl.setAttribute("playsinline", true);
 
 	
 	const span = document.createElement("span");
