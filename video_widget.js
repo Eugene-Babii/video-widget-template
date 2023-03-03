@@ -2655,7 +2655,7 @@ const createSlide = (video, index, container) => {
 		videoEl.setAttribute("playsinline", "");
 		videoEl.preload = "auto";
 		videoEl.setAttribute("allowInlineMediaPlayback", "true");
-		videoEl.setAttribute("webkit-playsinline", "true");
+		videoEl.setAttribute("webkit-playsinline", "");
 		videoEl.setAttribute("allowfullscreen", "false");
 
 	} else {
