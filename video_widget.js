@@ -2653,13 +2653,13 @@ const createSlide = (video, index, container) => {
 	if (isSafari){
 		videoEl.setAttribute("muted", "");
 		videoEl.setAttribute("playsinline", "");
-	videoEl.preload = "auto";
+		videoEl.preload = "auto";
 
 	} else {
 		videoEl.playsinline = true;
 		videoEl.muted = true;
 		// videoEl.type = "video/mp4";
-	videoEl.preload = "metadata";
+		videoEl.preload = "metadata";
 
 	}
 
@@ -4163,6 +4163,7 @@ dynamicMuteBtnDesktop?.addEventListener("click", (e) => {
 
 function toggleSoundDynamicDesktop() {
     if (videosIsMutedDynamic) {
+				console.log("videosIsMutedDynamic");
         dynamicVideos.forEach((v) => (v.muted = false));
         dynamicSoundOnIconDesktop.style.display = "block";
         dynamicSoundOffIconDesktop.style.display = "none";
