@@ -2628,8 +2628,8 @@ const createSlide = (video, index, container) => {
 	// videoEl.muted = true;
 	videoEl.autoplay = true;
 	// videoEl.playsinline = true;
-	videoEl.setAttribute("muted", "muted");
-	videoEl.setAttribute("playsinline", "playsinline");
+	videoEl.setAttribute("muted", true);
+	videoEl.setAttribute("playsinline", true);
 
 	
 	const span = document.createElement("span");
@@ -4184,6 +4184,7 @@ const dynamicSwiper = new Swiper(".dynamic-video-slider", {
 });
 
 dynamicVideos[0].click();
+document.click();
 
 if (floatingVideos) {
     dynamicSwiper.allowTouchMove = false;
