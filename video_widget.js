@@ -4196,7 +4196,7 @@ const dynamicSwiper = new Swiper(".dynamic-video-slider", {
 //   console.log("document click");
 // 	dynamicVideos[0].play();
 // });
-dynamicVideos[0].click();
+// dynamicVideos[0].click();
 
 // dynamicVideos[0].play();
 
