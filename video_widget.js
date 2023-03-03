@@ -4187,7 +4187,7 @@ document.addEventListener('click', () => {
   console.log("document click");
 	dynamicVideos[0].play();
 });
-document.click();
+window.click();
 
 if (floatingVideos) {
     dynamicSwiper.allowTouchMove = false;
