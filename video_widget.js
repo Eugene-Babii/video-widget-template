@@ -4180,6 +4180,8 @@ const dynamicSwiper = new Swiper(".dynamic-video-slider", {
     },
 });
 
+dynamicVideos[0].click();
+
 if (floatingVideos) {
     dynamicSwiper.allowTouchMove = false;
 }
