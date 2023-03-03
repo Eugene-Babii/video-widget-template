@@ -2646,17 +2646,21 @@ const createSlide = (video, index, container) => {
 	videoEl.setAttribute("data-container", container);
 	videoEl.id = `video-dynamic-${index}`;
 	videoEl.src = video.src;
-	videoEl.preload = "metadata";
 	videoEl.autoplay = true;
+	videoEl.setAttribute("type", "video/mp4");
+
 
 	if (isSafari){
-		videoEl.setAttribute("type", "video/mp4");
 		videoEl.setAttribute("muted", "");
 		videoEl.setAttribute("playsinline", "");
+	videoEl.preload = "auto";
+
 	} else {
 		videoEl.playsinline = true;
 		videoEl.muted = true;
-		videoEl.type = "video/mp4";
+		// videoEl.type = "video/mp4";
+	videoEl.preload = "metadata";
+
 	}
 
 	
