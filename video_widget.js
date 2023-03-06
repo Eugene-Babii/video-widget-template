@@ -2648,7 +2648,6 @@ const createSlide = (video, index, container) => {
 	videoEl.id = `video-dynamic-${index}`;
 	videoEl.src = video.src;
 	videoEl.autoplay = true;
-	videoEl.setAttribute("playsinline", "");
 
 
 	if (isSafari){
@@ -2656,14 +2655,15 @@ const createSlide = (video, index, container) => {
 		videoEl.setAttribute("muted", "");
 		videoEl.setAttribute("allowInlineMediaPlayback", "true");
 		videoEl.setAttribute("webkit-playsinline", "");
+		videoEl.setAttribute("playsinline", "");
+
 		// videoEl.setAttribute("allowfullscreen", "false");
 		// videoEl.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
-
+		
 	} else {
 		videoEl.preload = "metadata";
 		videoEl.muted = true;
 		videoEl.playsinline = true;
-
 	}
 	
 	const span = document.createElement("span");
@@ -3730,7 +3730,27 @@ galleryVideos.forEach((galleryVideo, i) => {
     progressBars[i].paramIndex = i;
     progressBars[i].paramVideos = galleryVideos;
     progressBars[i].paramProgressFill = progressFill;
+
+				
+		var videoPath = galleryVideo.src;
+		var webView = new WKWebView();
+
+		// Load the video file into the web view
+		webView.loadFileURL(videoPath);
+
+		// Disable the full screen button in the web view
+		webView.runJavaScriptAlertPanelWithMessage = function(message, initiatedByFrame, completionHandler) {
+			if (message == "webkitfullscreenchange") {
+				webView.evaluateJavaScript("document.documentElement.webkitRequestFullscreen()", null);
+			} else {
+				completionHandler();
+			}
+		};
 });
+
+
+
+
 
 playVideoBtns.forEach((btn, i) => {
     btn.addEventListener("click", playCurrentVideo);
