@@ -2,7 +2,7 @@ import Swiper from 'swiper/bundle';
 
 import {widgetVideo} from "./mock-data";
 
-const videos = widgetVideo.videosFullstar;
+const videos = widgetVideo.videosOvenIgniter;
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
