@@ -2656,8 +2656,8 @@ const createSlide = (video, index, container) => {
 		videoEl.setAttribute("muted", "");
 		videoEl.setAttribute("allowInlineMediaPlayback", "true");
 		videoEl.setAttribute("webkit-playsinline", "");
-		videoEl.setAttribute("allowfullscreen", "false");
-		videoEl.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+		// videoEl.setAttribute("allowfullscreen", "false");
+		// videoEl.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
 
 	} else {
 		videoEl.preload = "metadata";
@@ -3718,6 +3718,9 @@ let floatingVideos = false;
 if (document.querySelector(".floating-card-video")) floatingVideos = true;
 
 galleryVideos.forEach((galleryVideo, i) => {
+		galleryVideo.addEventListener("webkitbeginfullscreen", function() {
+			galleryVideo.webkitExitFullscreen();
+		});
     galleryVideo.addEventListener("timeupdate", updateVideoProgress);
     galleryVideo.paramIndex = i;
     galleryVideo.paramVideos = galleryVideos;
