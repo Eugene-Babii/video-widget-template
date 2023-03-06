@@ -4199,12 +4199,23 @@ dynamicMuteBtnDesktop?.addEventListener("click", (e) => {
 function toggleSoundDynamicDesktop() {
     if (videosIsMutedDynamic) {
 				console.log("videosIsMutedDynamic");
-        dynamicVideos.forEach((v) => (v.muted = false));
+				if (isSafari) {
+					console.log("isSafari");
+				} else  {
+					console.log("else");
+					dynamicVideos.forEach((v) => (v.muted = false));
+				} 
         dynamicSoundOnIconDesktop.style.display = "block";
         dynamicSoundOffIconDesktop.style.display = "none";
         videosIsMutedDynamic = false;
     } else {
-        dynamicVideos.forEach((v) => (v.muted = true));
+			if (isSafari) {
+				console.log("isSafari");
+			} else  {
+				console.log("else");
+				dynamicVideos.forEach((v) => (v.muted = true));
+			}
+        
         dynamicSoundOffIconDesktop.style.display = "block";
         dynamicSoundOnIconDesktop.style.display = "none";
         videosIsMutedDynamic = true;
