@@ -2648,12 +2648,12 @@ const createSlide = (video, index, container) => {
 	videoEl.id = `video-dynamic-${index}`;
 	videoEl.src = video.src;
 	videoEl.autoplay = true;
+	videoEl.setAttribute("playsinline", "");
 
 
 	if (isSafari){
 		videoEl.preload = "auto";
 		videoEl.setAttribute("muted", "");
-		videoEl.setAttribute("playsinline", "");
 		videoEl.setAttribute("allowInlineMediaPlayback", "true");
 		videoEl.setAttribute("webkit-playsinline", "");
 		videoEl.setAttribute("allowfullscreen", "false");
