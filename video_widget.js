@@ -3732,20 +3732,18 @@ galleryVideos.forEach((galleryVideo, i) => {
     progressBars[i].paramProgressFill = progressFill;
 
 				
-		var videoPath = galleryVideo.src;
-		var webView = new WKWebView();
-
+		// var videoPath = galleryVideo.src;
+		// var webView = new WKWebView();
 		// Load the video file into the web view
-		webView.loadFileURL(videoPath);
-
+		// webView.loadFileURL(videoPath);
 		// Disable the full screen button in the web view
-		webView.runJavaScriptAlertPanelWithMessage = function(message, initiatedByFrame, completionHandler) {
-			if (message == "webkitfullscreenchange") {
-				webView.evaluateJavaScript("document.documentElement.webkitRequestFullscreen()", null);
-			} else {
-				completionHandler();
-			}
-		};
+		// webView.runJavaScriptAlertPanelWithMessage = function(message, initiatedByFrame, completionHandler) {
+		// 	if (message == "webkitfullscreenchange") {
+		// 		webView.evaluateJavaScript("document.documentElement.webkitRequestFullscreen()", null);
+		// 	} else {
+		// 		completionHandler();
+		// 	}
+		// };
 });
 
 
