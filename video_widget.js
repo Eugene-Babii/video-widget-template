@@ -3724,6 +3724,15 @@ galleryVideos.forEach((galleryVideo, i) => {
 			// galleryVideo.webkitExitFullscreen();
 			document.webkitExitFullscreen();
 		});
+		galleryVideo.addEventListener("webkitfullscreenchange", function() {
+			console.log("webkitfullscreenchange");
+		});
+		galleryVideo.addEventListener("mozfullscreenchange", function() {
+			console.log("mozfullscreenchange");
+		});
+		galleryVideo.addEventListener("fullscreenchange", function() {
+			console.log("fullscreenchange");
+		});
     galleryVideo.addEventListener("timeupdate", updateVideoProgress);
     galleryVideo.paramIndex = i;
     galleryVideo.paramVideos = galleryVideos;
