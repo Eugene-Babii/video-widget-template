@@ -3718,7 +3718,8 @@ let floatingVideos = false;
 if (document.querySelector(".floating-card-video")) floatingVideos = true;
 
 galleryVideos.forEach((galleryVideo, i) => {
-		galleryVideo.addEventListener("webkitbeginfullscreen", function() {
+		galleryVideo.addEventListener("webkitbeginfullscreen", function(event) {
+			event.preventDefault();
 			galleryVideo.webkitExitFullscreen();
 		});
     galleryVideo.addEventListener("timeupdate", updateVideoProgress);
