@@ -7,7 +7,6 @@ const videos = widgetVideo.videosFullstar;
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
 
-
 //detect browser
 var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 var isFirefox = typeof InstallTrigger !== 'undefined';  // Firefox 1.0+
@@ -2640,32 +2639,32 @@ const createSlide = (video, index, container) => {
 	videoContainer.classList.add("video-container");
 	
 	const videoEl = document.createElement("video");
+
 	videoEl.classList.add("video");
 	videoEl.setAttribute("data-index", index);
 	videoEl.setAttribute("data-dynamic", `dynamic-video-${index}`);
 	videoEl.setAttribute("data-container", container);
+	videoEl.setAttribute("type", "video/mp4");
 	videoEl.id = `video-dynamic-${index}`;
 	videoEl.src = video.src;
 	videoEl.autoplay = true;
-	videoEl.setAttribute("type", "video/mp4");
 
 
 	if (isSafari){
+		videoEl.preload = "auto";
 		videoEl.setAttribute("muted", "");
 		videoEl.setAttribute("playsinline", "");
-		videoEl.preload = "auto";
 		videoEl.setAttribute("allowInlineMediaPlayback", "true");
 		videoEl.setAttribute("webkit-playsinline", "");
 		videoEl.setAttribute("allowfullscreen", "false");
+		videoEl.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
 
 	} else {
-		videoEl.playsinline = true;
-		videoEl.muted = true;
-		// videoEl.type = "video/mp4";
 		videoEl.preload = "metadata";
+		videoEl.muted = true;
+		videoEl.playsinline = true;
 
 	}
-
 	
 	const span = document.createElement("span");
 	span.innerText = "Your browser does not support the video tag.";
