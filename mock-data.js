@@ -1,6 +1,6 @@
 const videosInstagram = [
   {
-      "src": "https://scontent-iev1-1.cdninstagram.com/v/t50.2886-16/125218434_374123123855887_8509081931092289544_n.mp4?efg=eyJ2ZW5jb2RlX3RhZyI6InZ0c192b2RfdXJsZ2VuLjcyMC5mZWVkLmRlZmF1bHQiLCJxZV9ncm91cHMiOiJbXCJpZ193ZWJfZGVsaXZlcnlfdnRzX290ZlwiXSJ9&_nc_ht=scontent-iev1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=BjybPWxjivEAX-AaTZm&edm=AP_V10EBAAAA&vs=17913513520520015_3602910072&_nc_vs=HBksFQAYJEdJS3VkZ2NQVXVaVFExUUJBQWhvY192dVZCWjJia1lMQUFBRhUAAsgBABUAGCRHTElzZUFkeGpqUUtMbUFCQUo2SUQ3c2E3R05NYmtZTEFBQUYVAgLIAQAoABgAGwAVAAAmnuPd79qP0j8VAigCQzMsF0A%2BCHKwIMScGBJkYXNoX2Jhc2VsaW5lXzJfdjERAHXqBwA%3D&_nc_rid=c5ca2a458e&ccb=7-5&oh=00_AfB9eDTzSG3roICkQfFT6YCBYA9Zl49fVY8yTBTNaupeDA&oe=64096134&_nc_sid=4f375e",
+      "src": "https://scontent-iev1-1.cdninstagram.com/v/t50.2886-16/125218434_374123123855887_8509081931092289544_n.mp4",
       "product": {
           "brand": "Instagram",
           "title": "Vegetable Slicer",

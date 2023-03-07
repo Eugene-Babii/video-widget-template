@@ -1,10 +1,7 @@
 import Swiper from 'swiper/bundle';
 
-import {widgetVideo} from "./mock-data";
-import {styles} from "./styles";
-
-
-const videos = widgetVideo.videosInstagram;
+const dataJsonString = `{{__VIDEO_JSON__}}`
+const videos = JSON.parse(dataJsonString);
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
@@ -1229,10 +1226,6 @@ galleryVideos.forEach((galleryVideo, i) => {
 		// };
 });
 
-
-
-
-
 playVideoBtns.forEach((btn, i) => {
     btn.addEventListener("click", playCurrentVideo);
     btn.paramIndex = i;
@@ -1910,6 +1903,5 @@ if ("IntersectionObserver" in window) {
     });
 }
 
-window._carrickQueue.push((methods) => methods.refreshTracking())
-	
+window._carrickQueue.push((methods) => methods.refreshTracking())	
 })
