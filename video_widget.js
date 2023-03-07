@@ -2653,8 +2653,8 @@ const createSlide = (video, index, container) => {
 	if (isSafari){
 		videoEl.preload = "auto";
 		videoEl.setAttribute("muted", "");
-		videoEl.setAttribute("allowInlineMediaPlayback", "true");
-		videoEl.setAttribute("webkit-playsinline", "");
+		// videoEl.setAttribute("allowInlineMediaPlayback", "true");
+		// videoEl.setAttribute("webkit-playsinline", "");
 		videoEl.setAttribute("playsinline", "");
 
 		// videoEl.setAttribute("allowfullscreen", "false");
@@ -2667,9 +2667,16 @@ const createSlide = (video, index, container) => {
 	}
 	
 	const span = document.createElement("span");
-	span.innerText = "Your browser does not support the video tag.";
-	
+	span.innerText = "Your browser does not support the video tag.";	
 	videoEl.appendChild(span);
+
+
+	// const videoSource = document.createElement("source");
+	// videoSource.src = video.src;
+	// videoEl.appendChild(videoSource);
+
+
+
 	videoContainer.appendChild(videoEl);
 	videoCard.appendChild(videoContainer);
 	slide.appendChild(videoCard);
@@ -2899,9 +2906,19 @@ const createVideoCard = (video, index, container) => {
 	videoEl.setAttribute("data-container", `${container}`);
 	videoEl.src = video.src;
 	videoEl.type = "video/mp4"
-	videoEl.preload = "metadata";
-	videoEl.muted = true;
-	videoEl.playsinline = true;
+	// videoEl.preload = "metadata";
+	// videoEl.muted = true;
+	// videoEl.playsinline = true;
+
+	if (isSafari){
+		videoEl.preload = "auto";
+		videoEl.setAttribute("muted", "");
+		videoEl.setAttribute("playsinline", "");
+	} else {
+		videoEl.preload = "metadata";
+		videoEl.muted = true;
+		videoEl.playsinline = true;
+	}
 	
 	const span = document.createElement("span");
 	span.innerText = "Your browser does not support the video tag.";
