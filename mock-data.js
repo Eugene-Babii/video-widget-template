@@ -2021,8 +2021,8 @@ const bedPillows = [
     product: {
       brand: "Beckham Hotel Collection",
       title: "beckham hotel collection bed pillows standard / queen size set",
-      rating: "4.4",
-      rating_count: "204158",
+      rating: 4.4,
+      rating_count: 204158,
       img: "https://m.media-amazon.com/images/I/31dgFqoj31L._SL500_.jpg",
       url: "https://www.amazon.com/dp/B01LYNW421?linkCode=ogi&th=1&psc=1",
       summary:
