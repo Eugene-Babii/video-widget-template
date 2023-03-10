@@ -1,8 +1,11 @@
 import Swiper from "swiper/bundle";
 import { styles } from "./styles.js";
+import { video } from "./mock-data.js";
 
-const dataJsonString = `{{__VIDEO_JSON__}}`;
-const videos = JSON.parse(dataJsonString);
+// const dataJsonString = `{{__VIDEO_JSON__}}`;
+// const videos = JSON.parse(dataJsonString);
+
+const videos = video.ovenIgniter;
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
@@ -1732,12 +1735,12 @@ window.addEventListener("load", () => {
       return;
     } else {
       if (videosIsMutedDynamic) {
-				dynamicVideos.forEach((v) => (v.muted = false));
+        dynamicVideos.forEach((v) => (v.muted = false));
         dynamicSoundOnIconDesktop.style.display = "block";
         dynamicSoundOffIconDesktop.style.display = "none";
         videosIsMutedDynamic = false;
       } else {
-				dynamicVideos.forEach((v) => (v.muted = true));
+        dynamicVideos.forEach((v) => (v.muted = true));
         dynamicSoundOffIconDesktop.style.display = "block";
         dynamicSoundOnIconDesktop.style.display = "none";
         videosIsMutedDynamic = true;

@@ -1,120 +1,3 @@
-const videosInstagram = [
-  {
-    src: "https://scontent-iev1-1.cdninstagram.com/v/t50.2886-16/125218434_374123123855887_8509081931092289544_n.mp4",
-    product: {
-      brand: "Instagram",
-      title: "Vegetable Slicer",
-      rating: "4.9",
-      rating_count: "798",
-      img: "https://m.media-amazon.com/images/I/510IlShEUmL._SL500_.jpg",
-      url: "https://www.amazon.com/dp/B07VG4S38C?linkCode=ogi&th=1&psc=1",
-      summary:
-        "The easy-to-use adjuster dial lets you choose the perfect thickness for your slices, while the interchangeable inserts allow you to get perfectly sized chopped veggies every time. The great thing about the Fullstar All-in-1 Vegetable Chopper is that it comes with a bonus 3-in-1 adjustable spiralizer, which is compact and easy to use. It's also dishwasher-safe, so clean up is a breeze. And because safety is a priority, the set includes a fingerguard and protective glove as well as a cleaning brush and blade organizer for safe storage.",
-      pros: [
-        "Non-slip base ensures stability",
-        "High-quality stainless steel blades",
-        "Created with safety in mind",
-        "Made from non-toxic ABS plastic",
-      ],
-      review:
-        "I literally just got this, cleaned it and immediately used it. I got through a whole bag of mini potatoes in a few minutes versus the 45+ minutes it would've taken me to cut by hand and it was FUN. Is it too soon to say I'm in love? Maybe. But I am",
-      faq: {
-        answer:
-          "The container holds around 6 cups of chopped vegetables. It measures 10 x 4.5 x 4 inches.",
-        question: "How many cups does the container hold?",
-      },
-    },
-    similar_products: [
-      {
-        brand: "Fullstar",
-        title: "Vegetable Chopper",
-        rating: "5.0",
-        rating_count: "805",
-        img: "https://m.media-amazon.com/images/I/515sViunWEL._SL500_.jpg",
-        url: "https://www.amazon.com/dp/B0764HS4SL?linkCode=ogi&th=1&psc=1",
-        summary:
-          "Featuring a built-in chop lid that lets you cut food directly into the large collection tray, this vegetable prep tool will quickly become the favorite of all your kitchen tools. It’s made with rust resistant heavy-duty 420 stainless steel, and each blade retains its razor sharpness for crisp and smooth cutting and grating. BPA free and sporting a non-skid base, Fullstar’s vegetable prep tool can cut fruits and vegetables safely and easily in half the time.",
-        pros: [
-          "Non-skid base ensures stability during use",
-          "Different blades snap with ease",
-          "Can be fully disassembled for easy cleaning",
-          "Rust-resistant and dishwasher safe",
-        ],
-      },
-      {
-        brand: "Fullstar",
-        title: "Vegetable Chopper Dicer Mandoline Slicer",
-        rating: "4.89",
-        rating_count: "2714",
-        img: "https://m.media-amazon.com/images/I/51-OZA+SzEL._SL500_.jpg",
-        url: "https://www.amazon.com/dp/B07WVPTN32?linkCode=ogi&th=1&psc=1",
-        summary:
-          "In addition to these great features, the Fullstar Vegetable Chopper also includes a bonus handheld peeler, egg separator, juicer, and slicer for added convenience. Each attachment easily snaps into place and won’t slide around while you’re slicing. Not only is the chopper easy to use, it also minimizes mess with its large catch tray and non-slip base. And when it's time to clean up, the entire gadget is easy to disassemble and dishwasher-safe.",
-        pros: [
-          "Includes a fingerguard and protective glove",
-          "Made with BPA-free plastic",
-          "Comes with a blade organizer",
-          "Features 11 different blade inserts",
-        ],
-      },
-      {
-        brand: "Fullstar",
-        title: "Fullstar Vegetable Spiralizer Vegetable Slicer",
-        rating: "4.1",
-        rating_count: "25214",
-        img: "https://m.media-amazon.com/images/I/51uX44gAX9S._SL500_.jpg",
-        url: "https://www.amazon.com/dp/B07Y2B97VX?linkCode=ogi&th=1&psc=1",
-        summary:
-          "A vegetable prep tool helps you chop your vegetables more quickly and with less effort, making soups, salads, and more easier to put together than ever. Before you purchase one for yourself, there are a few things to consider. First, ask yourself what type of vegetable prep tool you want. There are two main types of vegetable prep tools: manual and electric. Manual prep tools require you to do the chopping yourself while electric prep tools do all the work for you. If you have difficulty using a knife or if you’re in the market for a vegetable prep tool simply because you don't like chopping vegetables then a manual or electric prep tool would be a good option for you. Manual prep tools are usually the less expensive of the two and take up less counter space. The next question to ask yourself is what features you’d like the vegetable prep tool to include. Some prep tools come with interchangeable blades that can julienne, chop and slice veggies with ease. Other features can include a stainless steel blade that cuts quickly and precisely or a large tray for catching fruits and veggies after they've been chopped. You’ll also want to ensure that heavy duty blade construction, such as 420 stainless steel is one of the features of the vegetable prep tool you select. Finally, you’ll need to determine your budget. Vegetable prep tools can range in price from around $20 to $100 or more, and the price largely depends on the type and features of the prep tool. An electric model with more features will cost more while a manual prep tool with less features will be less expensive.",
-        pros: [
-          "8-in-1 kitchen gadget set for versatile use",
-          "Compact and easy to clean",
-          "Removable container for mess-free slicing",
-          "Non-slip finger guard for safe use",
-        ],
-      },
-    ],
-  },
-  {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07VG4S38C/Tikmate.online_7138086963738840326.mp4",
-    product: {
-      brand: "Fullstar",
-      title: "Fullstar Vegetable Slicer",
-      rating: "4.9",
-      rating_count: "798",
-      img: "https://m.media-amazon.com/images/I/510IlShEUmL._SL500_.jpg",
-      url: "https://www.amazon.com/dp/B07VG4S38C?linkCode=ogi&th=1&psc=1",
-      summary:
-        "The easy-to-use adjuster dial lets you choose the perfect thickness for your slices, while the interchangeable inserts allow you to get perfectly sized chopped veggies every time. The great thing about the Fullstar All-in-1 Vegetable Chopper is that it comes with a bonus 3-in-1 adjustable spiralizer, which is compact and easy to use. It's also dishwasher-safe, so clean up is a breeze. And because safety is a priority, the set includes a fingerguard and protective glove as well as a cleaning brush and blade organizer for safe storage.",
-      pros: [
-        "Non-slip base ensures stability",
-        "High-quality stainless steel blades",
-        "Created with safety in mind",
-        "Made from non-toxic ABS plastic",
-      ],
-    },
-  },
-  {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07VG4S38C/Tikmate.online_7158870152455589166.mp4",
-    product: {
-      brand: "Fullstar",
-      title: "Fullstar Vegetable Slicer",
-      rating: "4.9",
-      rating_count: "798",
-      img: "https://m.media-amazon.com/images/I/510IlShEUmL._SL500_.jpg",
-      url: "https://www.amazon.com/dp/B07VG4S38C?linkCode=ogi&th=1&psc=1",
-      summary:
-        "The easy-to-use adjuster dial lets you choose the perfect thickness for your slices, while the interchangeable inserts allow you to get perfectly sized chopped veggies every time. The great thing about the Fullstar All-in-1 Vegetable Chopper is that it comes with a bonus 3-in-1 adjustable spiralizer, which is compact and easy to use. It's also dishwasher-safe, so clean up is a breeze. And because safety is a priority, the set includes a fingerguard and protective glove as well as a cleaning brush and blade organizer for safe storage.",
-      pros: [
-        "Non-slip base ensures stability",
-        "High-quality stainless steel blades",
-        "Created with safety in mind",
-        "Made from non-toxic ABS plastic",
-      ],
-    },
-  },
-];
-
 // -=Fullstar=-
 
 const videosFullstar = [
@@ -2071,18 +1954,17 @@ const bedPillows = [
   },
 ];
 
-export const widgetVideo = {
-  videosFullstar,
-  videosGourmetEasy,
-  videosVitaCups,
-  videosCraftResin,
-  videosDOZbySIJO,
-  videosHomeHeritage,
-  videosColeman,
-  videosWrappingPaperStorage,
-  videosWreathStorageContainer,
-  videosOvenIgniter,
-  videosInstagram,
+export const video = {
+  fullstar,
+  gourmetEasy,
+  vitaCups,
+  craftResin,
+  DOZbySIJO,
+  homeHeritage,
+  coleman,
+  wrappingPaperStorage,
+  wreathStorageContainer,
+  ovenIgniter,
 
   //thrasiopages
   puttingMat,
