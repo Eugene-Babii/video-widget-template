@@ -119,7 +119,7 @@ const fullstar = [
 
 // -=Gourmet Easy=-
 
-const gourmetEasy = [
+const garlicPress = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B08WHLDMNX/263692612_1031968004321547_3502334328950743597_n.mp4",
     product: {
@@ -1096,7 +1096,7 @@ const massageGun = [
 
 const weightedBlanket = [
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B08SJQPFKZ/Stress Donât know her. @quility_weighted_blankets gives me similar to the feeling of being hugged & secured..mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B08SJQPFKZ/Stress.mp4",
     product: {
       brand: "Quility",
       title: "quility weighted blanket",
@@ -1126,7 +1126,7 @@ const weightedBlanket = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B08SJQPFKZ/Quality sleep reduces stress, boosts metabolism, and improves immunity.....#quility #weightedblanket #blanket #homedecor  #blankets #relax #duvet #duvetcovers #bed #relaxation #interiordesig.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B08SJQPFKZ/Have.mp4",
     product: {
       brand: "Quility",
       title: "quility weighted blanket",
@@ -1156,7 +1156,7 @@ const weightedBlanket = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B08SJQPFKZ/Have you felt how soft & smooth these blankets feel If not, you're missing out!.....#quility #weightedblanket #blanket #homedecor  #blankets #relax #duvet #duvetcovers #bed #relaxation #inte.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B08SJQPFKZ/Quality.mp4",
     product: {
       brand: "Quility",
       title: "quility weighted blanket",
@@ -1307,7 +1307,7 @@ const electricGooseneckKettle = [
 
 const kidsInflatableTravelBed = [
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B09MKXMJDZ/Struggling with toddler sleep when traveling ð« We did too! I wish we knew about this @enerplexofficial portable air mattress with my oldest! We wouldâve gotten such better sleep whe.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B09MKXMJDZ/We.mp4",
     product: {
       brand: "EnerPlex",
       title: "enerplex kids inflatable travel bed",
@@ -1334,7 +1334,7 @@ const kidsInflatableTravelBed = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B09MKXMJDZ/We could all use a spare bed ð This @enerplexofficial #AirMattress is fantastic for guests, #camping, movie nights etc 3 of you will win one! Enter on the previous post. #enerplex.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B09MKXMJDZ/While.mp4",
     product: {
       brand: "EnerPlex",
       title: "enerplex kids inflatable travel bed",
@@ -1361,7 +1361,7 @@ const kidsInflatableTravelBed = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B09MKXMJDZ/While we are out of state staying by family in Georgia we are sleeping on a nice king size air mattress, Jas loves riding the mattress down in the morning and last night while it b.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B09MKXMJDZ/Struggling.mp4",
     product: {
       brand: "EnerPlex",
       title: "enerplex kids inflatable travel bed",
@@ -1391,7 +1391,7 @@ const kidsInflatableTravelBed = [
 
 const pingPongBalls = [
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B09M8VR9FF/Our Best Seller Ping Pong Set   PM us to get 40% OFF now.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B09M8VR9FF/Our.mp4",
     product: {
       brand: "NIBIRU SPORT",
       title: "nibiru sport ping pong balls -premium 3 star table tennis",
@@ -1419,7 +1419,35 @@ const pingPongBalls = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B09M8VR9FF/No matter what - play ping pong   â¢â¢â¢â¢â¢#pingpong #pingpong  #pingpong4purpose #pingpongbar #pingpongball #pingpongshop_ #pingpong_store #pingpongmania #pingpongtable #pingpongchallenge #pingp.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B09M8VR9FF/No.mp4",
+    product: {
+      brand: "NIBIRU SPORT",
+      title: "nibiru sport ping pong balls -premium 3 star table tennis",
+      rating: 4.5,
+      rating_count: 271,
+      img: "https://m.media-amazon.com/images/I/41MgabyKxIL._SL500_.jpg",
+      url: "https://www.amazon.com/dp/B09M8VR9FF?linkCode=ogi&th=1&psc=1",
+      summary:
+        "NIBIRU SPORT Ping Pong Balls are an excellent choice for players of all levels. These 3 star premium ping pong balls offer superior performance for training and family games. Made from lightweight and durable materials, these outdoor sports accessories are designed to withstand heavy use. With a true bounce and optimal spin capabilities, NIBIRU SPORT Ping Pong Balls provide a consistent and high-quality experience every time. Whether you're playing serious tournaments or having fun with friends and family at home, NIBIRU SPORT Ping Pong Balls are the perfect choice.",
+      pros: [
+        "Malleable and can be manipulated with bare fingers",
+        "Good shape and bounce performance",
+        "Durable and long-lasting",
+        "Reasonable price",
+        "Easy to transport",
+      ],
+      review:
+        "Ping Pong Balls are great with our kitties.  I'm so happy I ordered these from Amazon.  They arrived quickly, right to our front door, because our driver is just awesome.  Thanks, Amazon.",
+      faq: {
+        question:
+          "Is the logo big and colorful enough to track the spin on the ball while you're practicing?",
+        answer:
+          " It is not necessary to rely on the logo to track the spin on the ball while practicing as it is possible to use a black marking pen to make a circle over the logo. For more information, please check out the link: https://www.amazon.com/vdp/0d74eed2a23049f1bb9b390e593c1c42?ref=dp_vse_rvc_4.",
+      },
+    },
+  },
+  {
+    src: "https://storage.googleapis.com/res-growth/product-assets/B09M8VR9FF/play_YrSmUEHG.mp4",
     product: {
       brand: "NIBIRU SPORT",
       title: "nibiru sport ping pong balls -premium 3 star table tennis",
@@ -1540,7 +1568,7 @@ const bartenderKit = [
 
 const carVacuumCleaner = [
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B079L6RX8Q/10000000_1127389308209900_6992902713906582288_n.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B079L6RX8Q/car.mp4",
     product: {
       brand: "ThisWorx for",
       title: "thisworx car vacuum cleaner",
@@ -1571,38 +1599,7 @@ const carVacuumCleaner = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B079L6RX8Q/277327058_3142151156064119_1168254293401323774_n.mp4",
-    product: {
-      brand: "ThisWorx for",
-      title: "thisworx car vacuum cleaner",
-      rating: 4.87,
-      rating_count: 3664,
-      img: "https://m.media-amazon.com/images/I/41crGUITmHL._SL500_.jpg",
-      url: "https://www.amazon.com/dp/B079L6RX8Q?linkCode=ogi&th=1&psc=1",
-      summary:
-        "ThisWorx Car Vacuum Cleaner is a powerful and versatile tool for interior detailing. With 110W cleaning power and 9.17 Amps, this vacuum is equipped to take on any mess with ease. It also features LED lighting, perfect for illuminating dark and unreachable areas in the car. This car vacuum comes with 3 attachments, a carry bag, filter cleaning brush, and a HEPA filter that can be easily washed. It is extremely lightweight, weighing only 2.6 lbs, making it very convenient for on-the-go use. The large dust bin capacity quickly eliminates ash, dust and food spills from your vehicle. All of these features make ThisWorx Car Vacuum Cleaner an ideal choice for interior detailing.",
-      pros: [
-        "Brush attachment included",
-        "Hose included for hard to reach areas",
-        "Easy to take apart and clean filter",
-        "Power cord long enough to clean full sized sedan",
-        "Compact and lightweight - perfect for portability/on-the-go clean up",
-        "Carrying case included for easy storage and travel",
-        "Multiple attachments and accessories for different cleaning surfaces",
-        "Quiet motor with decent suction power",
-      ],
-      review:
-        "vacuum is an absolute game-changer for car owners. It is lightweight, compact, and incredibly powerful. The suction is strong enough to pick up everything from dirt and crumbs to pet hair and debris.",
-      faq: {
-        question:
-          "Whats the difference between this model and the twc-01 also by thisworx?",
-        answer:
-          " The TWC-02 and TWC-01 models from ThisWorx differ in that TWC-02 has a LED light, has stronger power, and has an additional filter compared to TWC-01.",
-      },
-    },
-  },
-  {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B079L6RX8Q/ThisWorx Car Vacuum Cleaner Works Great! 20% Off Right Now! Click Link In Profile....#thisworx #thisworks #thisworksforme #carvacuum #carvacuumcleaner #forthecar #caraccessories #thrasioow.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B079L6RX8Q/ThisWorx.mp4",
     product: {
       brand: "ThisWorx for",
       title: "thisworx car vacuum cleaner",
@@ -1723,7 +1720,7 @@ const pimplePatchesForFaceAndBody = [
 
 const pingPongPaddleSets = [
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B075D6TK2Z/Our Customer's happiness is our happiness too. We love #pingpongGet your additional 10% OFF with this unique link to amazonhttps---www.amazon.com-gp-mpc-AU2024JAIGWAGOnly two days left .mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B075D6TK2Z/ping.mp4",
     product: {
       brand: "NIBIRU SPORT",
       title: "nibiru sport ping pong paddles set of 4",
@@ -1750,7 +1747,7 @@ const pingPongPaddleSets = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B075D6TK2Z/Ping Pong is great both for kids and parents. Transform any surface in #tabletennis table with easy. Let's grow together #PingPong #NibiruSport #NibiruFamily #NibiruSportTeam Improving .mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B075D6TK2Z/vid.mp4",
     product: {
       brand: "NIBIRU SPORT",
       title: "nibiru sport ping pong paddles set of 4",
@@ -1777,7 +1774,7 @@ const pingPongPaddleSets = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B075D6TK2Z/Video review about #pingpong set #nibirusport   We are so glad and proud our product   #PingPong #NibiruSport #NibiruFamily #NibiruSportTeam #NibiruPingPong #NibiruTennis #NibiruTableTennis #Ni.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B075D6TK2Z/Our.mp4",
     product: {
       brand: "NIBIRU SPORT",
       title: "nibiru sport ping pong paddles set of 4",
@@ -1956,7 +1953,7 @@ const bedPillows = [
 
 export const video = {
   fullstar,
-  gourmetEasy,
+  garlicPress,
   vitaCups,
   craftResin,
   DOZbySIJO,
