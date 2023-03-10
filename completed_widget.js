@@ -10,25 +10,25 @@ const containerGallery = "gallery";
 //detect browser
 var isChrome =
   /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-var isFirefox = typeof InstallTrigger !== "undefined"; // Firefox 1.0+
+// var isFirefox = typeof InstallTrigger !== "undefined"; // Firefox 1.0+
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-var isEdge = /\bEdg/.test(navigator.userAgent);
-var isIE = /Trident/.test(navigator.userAgent);
+// var isEdge = /\bEdg/.test(navigator.userAgent);
+// var isIE = /Trident/.test(navigator.userAgent);
 
 // log browser to console
-if (isChrome) {
-  console.log("Chrome");
-} else if (isFirefox) {
-  console.log("Firefox");
-} else if (isSafari) {
-  console.log("Safari");
-} else if (isEdge) {
-  console.log("Edge");
-} else if (isIE) {
-  console.log("Internet Explorer");
-} else {
-  console.log("Unknown browser");
-}
+// if (isChrome) {
+//   console.log("Chrome");
+// } else if (isFirefox) {
+//   console.log("Firefox");
+// } else if (isSafari) {
+//   console.log("Safari");
+// } else if (isEdge) {
+//   console.log("Edge");
+// } else if (isIE) {
+//   console.log("Internet Explorer");
+// } else {
+//   console.log("Unknown browser");
+// }
 
 const addStyle = () => {
   const style = document.createElement("style");
@@ -174,8 +174,10 @@ const createVideoWidget = (videos) => {
   const videoHoverArea = document.createElement("div");
   videoHoverArea.classList.add("video-hover-area");
 
-  const buttonMute = createButtonMute(containerVideoCardDynamic);
-  videoHoverArea.appendChild(buttonMute);
+  if (isChrome) {
+    const buttonMute = createButtonMute(containerVideoCardDynamic);
+    videoHoverArea.appendChild(buttonMute);
+  }
 
   const videoProductInfo = document.createElement("a");
   videoProductInfo.classList.add("video-product-info");
@@ -1290,21 +1292,6 @@ window.addEventListener("load", () => {
   if (document.querySelector(".floating-card-video")) floatingVideos = true;
 
   galleryVideos.forEach((galleryVideo, i) => {
-    galleryVideo.addEventListener("webkitbeginfullscreen", function (event) {
-      console.log("webkitbeginfullscreen");
-      event.preventDefault();
-      // galleryVideo.webkitExitFullscreen();
-      document.webkitExitFullscreen();
-    });
-    galleryVideo.addEventListener("webkitfullscreenchange", function () {
-      console.log("webkitfullscreenchange");
-    });
-    galleryVideo.addEventListener("mozfullscreenchange", function () {
-      console.log("mozfullscreenchange");
-    });
-    galleryVideo.addEventListener("fullscreenchange", function () {
-      console.log("fullscreenchange");
-    });
     galleryVideo.addEventListener("timeupdate", updateVideoProgress);
     galleryVideo.paramIndex = i;
     galleryVideo.paramVideos = galleryVideos;
@@ -1347,7 +1334,6 @@ window.addEventListener("load", () => {
     const progressFill = e.currentTarget.paramProgressFill;
     const progressBarWidth = progressBars[index].offsetWidth;
     const video = videos[index];
-    // console.log(progressBarWidth);
     let progressValue = Math.round(
       (video.currentTime / video.duration) * progressBarWidth
     );
@@ -1746,24 +1732,12 @@ window.addEventListener("load", () => {
       return;
     } else {
       if (videosIsMutedDynamic) {
-        console.log("videosIsMutedDynamic");
-        if (isSafari) {
-          console.log("isSafari");
-        } else {
-          console.log("else");
-          dynamicVideos.forEach((v) => (v.muted = false));
-        }
+				dynamicVideos.forEach((v) => (v.muted = false));
         dynamicSoundOnIconDesktop.style.display = "block";
         dynamicSoundOffIconDesktop.style.display = "none";
         videosIsMutedDynamic = false;
       } else {
-        if (isSafari) {
-          console.log("isSafari");
-        } else {
-          console.log("else");
-          dynamicVideos.forEach((v) => (v.muted = true));
-        }
-
+				dynamicVideos.forEach((v) => (v.muted = true));
         dynamicSoundOffIconDesktop.style.display = "block";
         dynamicSoundOnIconDesktop.style.display = "none";
         videosIsMutedDynamic = true;
