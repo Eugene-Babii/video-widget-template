@@ -1,6 +1,6 @@
 // -=Fullstar=-
 
-const videosFullstar = [
+const fullstar = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B07VG4S38C/Tikmate.online_7169979464422657322.mp4",
     product: {
@@ -119,7 +119,7 @@ const videosFullstar = [
 
 // -=Gourmet Easy=-
 
-const videosGourmetEasy = [
+const gourmetEasy = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B08WHLDMNX/263692612_1031968004321547_3502334328950743597_n.mp4",
     product: {
@@ -221,7 +221,7 @@ const videosGourmetEasy = [
 
 // -=VitaCups=- coffee
 
-const videosVitaCups = [
+const vitaCups = [
   {
     src: "https://storage.googleapis.com/res-growth/brands/video/vitaCup_video_01.mp4",
     product: {
@@ -316,7 +316,7 @@ const videosVitaCups = [
 
 // -=Craft Resin=-
 
-const videosCraftResin = [
+const craftResin = [
   {
     src: "https://storage.googleapis.com/res-growth/brands/video/craftResin_video_01.mp4",
     product: {
@@ -395,7 +395,7 @@ const videosCraftResin = [
 
 // -=DOZ by SIJO=-
 
-const videosDOZbySIJO = [
+const DOZbySIJO = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B0B8JFR17Q/316980795_116438464616038_4000629495019318433_n (1).mp4",
     product: {
@@ -479,7 +479,7 @@ const videosDOZbySIJO = [
 
 // -=Home Heritage=-
 
-const videosHomeHeritage = [
+const homeHeritage = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B09MY81LPN/10000000_362153726077214_4796574280049742756_n.mp4",
     product: {
@@ -558,7 +558,7 @@ const videosHomeHeritage = [
 
 // -=Coleman=-
 
-const videosColeman = [
+const coleman = [
   {
     src: "https://storage.googleapis.com/res-growth/brands/video/coleman_video_01.mp4",
     product: {
@@ -672,7 +672,7 @@ const videosColeman = [
 
 // -=WrappingPaperStorage=-
 
-const videosWrappingPaperStorage = [
+const wrappingPaperStorage = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B07XDWDWZ1/SHOOK - funny video below[default.jobtemplate.hls.m3u8].mp4",
     product: {
@@ -768,7 +768,7 @@ const videosWrappingPaperStorage = [
 
 // -=Wreath storage container=-
 
-const videosWreathStorageContainer = [
+const wreathStorageContainer = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B08GK9ZC97/Wreath Storage Organizer by Clutter Armour[default.jobtemplate.hls.m3u8].mp4",
     product: {
@@ -857,7 +857,7 @@ const videosWreathStorageContainer = [
 
 // -=Oven Igniter=-
 
-const videosOvenIgniter = [
+const ovenIgniter = [
   {
     src: "https://storage.googleapis.com/res-growth/product-assets/B0BJ38V18M/b&cecom.mp4",
     product: {
