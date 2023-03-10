@@ -897,7 +897,7 @@ const ovenIgniter = [
 
 const puttingMat = [
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07YQ7935B/Always can get better at putting  â¢â¢The @perfectpracticegolf True Pendulum Motion training aid and Putting Mat are my favorite choice for practice in the off season. Link in my bio saves you 20% .mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B07YQ7935B/Always_can_get_better.mp4",
     product: {
       brand: "PERFECT PRACTICE",
       title: "perfect practice putting mat",
@@ -928,7 +928,7 @@ const puttingMat = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07YQ7935B/Putting, chipping, trick-shots, games, & competitions. You really can do EVERYTHING with our putting mat. Whatâs your favorite feature  ï¸  #AlwaysBePutting   @stogies_and_slices .....#perfectprac.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B07YQ7935B/Putting_chipping.mp4",
     product: {
       brand: "PERFECT PRACTICE",
       title: "perfect practice putting mat",
@@ -959,7 +959,7 @@ const puttingMat = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07YQ7935B/Weâre spilling some TEE! Stay tuned tomorrow morning for a GOLF GIVEAWAY you wonât want to miss!  ï¸ â¢#perfectpracticegolf #tailactivewear #alwaysbeputting #perfectpractice #tail #golfgiveaway #go.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B07YQ7935B/We_spilling.mp4",
     product: {
       brand: "PERFECT PRACTICE",
       title: "perfect practice putting mat",
@@ -1189,7 +1189,7 @@ const weightedBlanket = [
 
 const jewelryStorageBox = [
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07F115M6Q/Donât really like to be fit in a box but girlllllllll, do I love me a decorative box where I can hide some junk in it   true story! #amazonhome #amazonhomefinds #founditonamazon #amazonmusth.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B07F115M6Q/Do_really.mp4",
     product: {
       brand: "Jewelkeeper",
       title: "jewelkeeper girl''s musical jewelry storage box",
@@ -1215,7 +1215,7 @@ const jewelryStorageBox = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07F115M6Q/Have you seen our newest cotton candy unicorn musical jewelry box Take a look and let us know what you think....mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B07F115M6Q/Do_you_own.mp4",
     product: {
       brand: "Jewelkeeper",
       title: "jewelkeeper girl''s musical jewelry storage box",
@@ -1241,7 +1241,7 @@ const jewelryStorageBox = [
     },
   },
   {
-    src: "https://storage.googleapis.com/res-growth/product-assets/B07F115M6Q/Do you own these Lots of great toys come from Toys South.  Hereâs a few from our recent show in our Toys South showroom that you may or may not have ordered. If you are a consumer then th.mp4",
+    src: "https://storage.googleapis.com/res-growth/product-assets/B07F115M6Q/Have_you.mp4",
     product: {
       brand: "Jewelkeeper",
       title: "jewelkeeper girl''s musical jewelry storage box",
