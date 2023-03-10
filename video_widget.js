@@ -5,7 +5,7 @@ import { video } from "./mock-data.js";
 // const dataJsonString = `{{__VIDEO_JSON__}}`;
 // const videos = JSON.parse(dataJsonString);
 
-const videos = video.hairRemovalMittsRollers;
+const videos = video.puttingMat;
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
@@ -139,10 +139,6 @@ const createSlide = (video, index, container) => {
   span.innerText = "Your browser does not support the video tag.";
   videoEl.appendChild(span);
 
-  // const videoSource = document.createElement("source");
-  // videoSource.src = video.src;
-  // videoEl.appendChild(videoSource);
-
   videoContainer.appendChild(videoEl);
   videoCard.appendChild(videoContainer);
   slide.appendChild(videoCard);
@@ -184,6 +180,7 @@ const createVideoWidget = (videos) => {
 
   const videoProductInfo = document.createElement("a");
   videoProductInfo.classList.add("video-product-info");
+  videoProductInfo.classList.add("pp-video-widget-track-link");
   videoProductInfo.setAttribute("href", videos[0].product.url);
   videoProductInfo.setAttribute("target", "_blank");
 
@@ -471,6 +468,7 @@ const createVideoCard = (video, index, container) => {
 
   const videoCardButton = document.createElement("a");
   videoCardButton.classList.add("video-card-button");
+  videoCardButton.classList.add("pp-video-widget-track-link");
   videoCardButton.setAttribute("href", video.product.url);
   videoCardButton.setAttribute("target", "_blank");
   videoCardButton.innerText = "Vew deal";
@@ -510,6 +508,7 @@ const createProductButtonExpandable = (
 
   const productButtonExpandable = document.createElement("a");
   productButtonExpandable.classList.add("product-button-expandable");
+  productButtonExpandable.classList.add("pp-video-widget-track-link");
   productButtonExpandable.setAttribute("href", `${product.url}`);
   productButtonExpandable.setAttribute("target", "_blank");
 
@@ -711,6 +710,7 @@ const createGalleryWidget = (
   productLink.setAttribute("href", product.url);
   productLink.setAttribute("target", "_blank");
   productLink.setAttribute("style", "text-decoration: none; color: white;");
+  productLink.classList.add("pp-video-widget-track-link");
 
   const productButton = createProductButton(product);
   productLink.appendChild(productButton);
@@ -768,6 +768,7 @@ const createGallerySidebar = (video) => {
 
       const btnLink = document.createElement("a");
       btnLink.classList.add("btn-link");
+      btnLink.classList.add("pp-video-widget-track-link");
       btnLink.setAttribute("href", `${product.url}`);
       btnLink.setAttribute("target", "_blank");
       btnLink.innerText = "View Deal";
@@ -831,6 +832,7 @@ const createGallerySidebar = (video) => {
 
   const btnLink = document.createElement("a");
   btnLink.classList.add("btn-link");
+  btnLink.classList.add("pp-video-widget-track-link");
   btnLink.setAttribute("href", `${video.product.url}`);
   btnLink.setAttribute("target", "_blank");
   btnLink.innerText = "View Deal";
@@ -906,6 +908,7 @@ const createPopUpMobileWidget = (product) => {
 
   const btnShop = document.createElement("a");
   btnShop.classList.add("btn-shop");
+  btnShop.classList.add("pp-video-widget-track-link");
   btnShop.setAttribute("href", product.url);
   btnShop.setAttribute("target", "_blank");
 
@@ -939,6 +942,7 @@ const createPopUpMobileWidget = (product) => {
 
   const btnLink = document.createElement("a");
   btnLink.classList.add("btn-link");
+  btnLink.classList.add("pp-video-widget-track-link");
   btnLink.setAttribute("href", `${product.url}`);
   btnLink.setAttribute("target", "_blank");
   btnLink.innerText = "View Deal";
