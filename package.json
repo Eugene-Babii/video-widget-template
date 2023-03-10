@@ -5,7 +5,7 @@
   "type": "module",
   "main": "video-widget.min.js",
   "scripts": {
-    "build-widget": "node ./build-widget.js && webpack --env prefix=$FILE_PREFIX"
+    "build-widget": "cross-env FILE_PREFIX=blabla DATA_KEY=bedPillows webpack --env prefix=blabla && node build-widget.js || echo 'FILE_PREFIX is not set'"
   },
   "repository": {
     "type": "git",
@@ -20,10 +20,12 @@
   "homepage": "https://github.com/Eugene-Babii/video-widget-template#readme",
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "swiper": "^9.1.0"
   }
 }

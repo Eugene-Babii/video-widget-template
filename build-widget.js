@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
 import fs from 'fs/promises'
 import path from 'path';
 import { widgetVideo } from './mock-data.js'
+
+dotenv.config();
 
 const dataKey = process.env.DATA_KEY
 
