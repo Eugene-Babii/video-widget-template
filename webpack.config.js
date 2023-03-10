@@ -6,7 +6,7 @@ const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 export default (env) => {
   return {
-    mode: "production",
+    mode: "development",
     entry: {
       ["video-widget"]: "./completed_widget.js",
     },
