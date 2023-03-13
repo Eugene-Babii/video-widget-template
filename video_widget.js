@@ -5,7 +5,7 @@ import { video } from "./mock-data.js";
 // const dataJsonString = `{{__VIDEO_JSON__}}`;
 // const videos = JSON.parse(dataJsonString);
 
-const videos = video.wreathStorageContainer;
+const videos = video.hairRemovalMittsRollers;
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
@@ -1986,5 +1986,8 @@ window.addEventListener("load", () => {
     });
   }
 
+  if (!window._carrickQueue) {
+    window._carrickQueue = [];
+  }
   window._carrickQueue.push((methods) => methods.refreshTracking());
 });

@@ -5,7 +5,7 @@
   "type": "module",
   "main": "video-widget.min.js",
   "scripts": {
-    "build-widget": "cross-env FILE_PREFIX=blabla DATA_KEY=bedPillows webpack --env prefix=blabla && node build-widget.js || echo 'FILE_PREFIX is not set'"
+    "build-widget": "cross-env FILE_PREFIX='video-widget' DATA_KEY=bedPillows node build-widget.js && webpack --env prefix=%FILE_PREFIX%  || echo 'FILE_PREFIX is not set'"
   },
   "repository": {
     "type": "git",
