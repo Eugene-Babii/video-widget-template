@@ -5,7 +5,7 @@ import { video } from "./mock-data.js";
 // const dataJsonString = `{{__VIDEO_JSON__}}`;
 // const videos = JSON.parse(dataJsonString);
 
-const videos = video.hairRemovalMittsRollers;
+const videos = video.jewelryStorageBox;
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
