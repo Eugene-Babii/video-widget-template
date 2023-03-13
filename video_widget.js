@@ -5,7 +5,7 @@ import { video } from "./mock-data.js";
 // const dataJsonString = `{{__VIDEO_JSON__}}`;
 // const videos = JSON.parse(dataJsonString);
 
-const videos = video.hairRemovalMittsRollers;
+const videos = video.craftResin;
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
@@ -1149,6 +1149,19 @@ const addVideoWidget = () => {
 
 addVideoWidget();
 
+function waitForWindowProperty(property, callback){
+  const isPropertyExists = function(){
+    return Boolean(window[property])
+  }
+
+  if(!isPropertyExists()){
+    console.log(property, 'Not exists');
+    setTimeout(() => waitForWindowProperty(property, callback), 1000)
+  }else{
+    callback()
+  }
+}
+
 window.addEventListener("load", () => {
   class Components {
     constructor(selector) {
@@ -1989,5 +2002,6 @@ window.addEventListener("load", () => {
   if (!window._carrickQueue) {
     window._carrickQueue = [];
   }
-  window._carrickQueue.push((methods) => methods.refreshTracking());
+
+  waitForWindowProperty('_carrickQueue', () => window._carrickQueue.push((methods) => methods.refreshTracking()))
 });
