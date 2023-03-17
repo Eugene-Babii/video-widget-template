@@ -2,10 +2,7 @@ import Swiper from "swiper/bundle";
 import { styles } from "./styles.js";
 import { video } from "./mock-data.js";
 
-// const dataJsonString = `{{__VIDEO_JSON__}}`;
-// const videos = JSON.parse(dataJsonString);
-
-const videos = video.wreathStorageContainer;
+let videos = `{{__VIDEO_JSON__}}`;
 
 const containerVideoCardDynamic = "video-card-dynamic";
 const containerGallery = "gallery";
@@ -13,25 +10,7 @@ const containerGallery = "gallery";
 //detect browser
 var isChrome =
   /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-// var isFirefox = typeof InstallTrigger !== "undefined"; // Firefox 1.0+
 var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-// var isEdge = /\bEdg/.test(navigator.userAgent);
-// var isIE = /Trident/.test(navigator.userAgent);
-
-// log browser to console
-// if (isChrome) {
-//   console.log("Chrome");
-// } else if (isFirefox) {
-//   console.log("Firefox");
-// } else if (isSafari) {
-//   console.log("Safari");
-// } else if (isEdge) {
-//   console.log("Edge");
-// } else if (isIE) {
-//   console.log("Internet Explorer");
-// } else {
-//   console.log("Unknown browser");
-// }
 
 const addStyle = () => {
   const style = document.createElement("style");
@@ -123,12 +102,7 @@ const createSlide = (video, index, container) => {
   if (isSafari) {
     videoEl.preload = "auto";
     videoEl.setAttribute("muted", "");
-    // videoEl.setAttribute("allowInlineMediaPlayback", "true");
-    // videoEl.setAttribute("webkit-playsinline", "");
     videoEl.setAttribute("playsinline", "");
-
-    // videoEl.setAttribute("allowfullscreen", "false");
-    // videoEl.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
   } else {
     videoEl.preload = "metadata";
     videoEl.muted = true;
@@ -421,11 +395,10 @@ const createVideoCard = (video, index, container) => {
   videoEl.classList.add(`${container}-video`);
   videoEl.setAttribute("id", `${container}-video-${index}`);
   videoEl.setAttribute("data-container", `${container}`);
-  videoEl.src = video.src;
+  if (video?.src) {
+    videoEl.src = video.src;
+  }
   videoEl.type = "video/mp4";
-  // videoEl.preload = "metadata";
-  // videoEl.muted = true;
-  // videoEl.playsinline = true;
 
   if (isSafari) {
     videoEl.preload = "auto";
@@ -451,29 +424,35 @@ const createVideoCard = (video, index, container) => {
   const videoCardTextWrapper = document.createElement("div");
   videoCardTextWrapper.classList.add("video-card-text-wrapper");
 
-  const brand = document.createElement("div");
-  brand.classList.add("brand");
-  brand.innerText = video.product.brand;
+  if (video?.product?.brand) {
+    const brand = document.createElement("div");
+    brand.classList.add("brand");
+    brand.innerText = video.product.brand;
+    videoCardTextWrapper.appendChild(brand);
+  }
 
-  const title = document.createElement("div");
-  title.classList.add("title");
-  title.innerText = video.product.title;
+  if (video?.product?.title) {
+    const title = document.createElement("div");
+    title.classList.add("title");
+    title.innerText = video.product.title;
+    videoCardTextWrapper.appendChild(title);
+  }
 
-  videoCardTextWrapper.appendChild(brand);
-  videoCardTextWrapper.appendChild(title);
   videoCardTextContainer.appendChild(videoCardTextWrapper);
 
   const videoCardButtonWrapper = document.createElement("div");
   videoCardButtonWrapper.classList.add("video-card-button-wrapper");
 
-  const videoCardButton = document.createElement("a");
-  videoCardButton.classList.add("video-card-button");
-  videoCardButton.classList.add("pp-video-widget-track-link");
-  videoCardButton.setAttribute("href", video.product.url);
-  videoCardButton.setAttribute("target", "_blank");
-  videoCardButton.innerText = "Vew deal";
+  if (video?.product?.url) {
+    const videoCardButton = document.createElement("a");
+    videoCardButton.classList.add("video-card-button");
+    videoCardButton.classList.add("pp-video-widget-track-link");
+    videoCardButton.setAttribute("href", video.product.url);
+    videoCardButton.setAttribute("target", "_blank");
+    videoCardButton.innerText = "View deal";
+    videoCardButtonWrapper.appendChild(videoCardButton);
+  }
 
-  videoCardButtonWrapper.appendChild(videoCardButton);
   videoCardTextContainer.appendChild(videoCardButtonWrapper);
   slide.appendChild(videoCardTextContainer);
 
@@ -509,7 +488,9 @@ const createProductButtonExpandable = (
   const productButtonExpandable = document.createElement("a");
   productButtonExpandable.classList.add("product-button-expandable");
   productButtonExpandable.classList.add("pp-video-widget-track-link");
-  productButtonExpandable.setAttribute("href", `${product.url}`);
+  if (product?.url) {
+    productButtonExpandable.setAttribute("href", `${product.url}`);
+  }
   productButtonExpandable.setAttribute("target", "_blank");
 
   const productImageContainer = document.createElement("div");
@@ -517,7 +498,12 @@ const createProductButtonExpandable = (
 
   const productImage = document.createElement("div");
   productImage.classList.add("product-image");
-  productImage.setAttribute("style", `background-image: url("${product.img}")`);
+  if (product?.img) {
+    productImage.setAttribute(
+      "style",
+      `background-image: url("${product.img}")`
+    );
+  }
 
   productImageContainer.appendChild(productImage);
   productButtonExpandable.appendChild(productImageContainer);
@@ -527,7 +513,9 @@ const createProductButtonExpandable = (
 
   const productTitle = document.createElement("div");
   productTitle.classList.add("product-title");
-  productTitle.innerText = product.title;
+  if (product?.title) {
+    productTitle.innerText = product.title;
+  }
   titleContainer.appendChild(productTitle);
 
   const brandName = document.createElement("div");
@@ -546,7 +534,9 @@ const createProductButtonExpandable = (
 
   const brandTitle = document.createElement("div");
   brandTitle.classList.add("brand-title");
-  brandTitle.innerText = product.brand;
+  if (product?.brand) {
+    brandTitle.innerText = product.brand;
+  }
   brandName.appendChild(brandTitle);
 
   titleContainer.appendChild(brandName);
@@ -617,13 +607,17 @@ const createRating = (rating, rating_count) => {
   const ratingTitle = document.createElement("div");
   ratingTitle.classList.add("rating-title");
   ratingTitle.setAttribute("id", "info-sidebar-rating-title");
-  ratingTitle.innerText = rating;
+  if (rating) {
+    ratingTitle.innerText = rating;
+  }
   $rating.appendChild(ratingTitle);
 
   const ratingCount = document.createElement("div");
   ratingCount.classList.add("rating-count");
   ratingCount.setAttribute("id", "info-sidebar-rating-count");
-  ratingCount.innerText = "Based on " + rating_count + " reviews";
+  if (rating_count) {
+    ratingCount.innerText = "Based on " + rating_count + " reviews";
+  }
   $rating.appendChild(ratingCount);
 
   return $rating;
@@ -644,7 +638,9 @@ const createPros = (pros) => {
 
   pros.forEach((p) => {
     const li = document.createElement("li");
-    li.innerText = p;
+    if (p) {
+      li.innerText = p;
+    }
     ulPros.appendChild(li);
   });
   prosWrapper.appendChild(ulPros);
@@ -658,7 +654,12 @@ const createProductButton = (product) => {
 
   const productImage = document.createElement("div");
   productImage.classList.add("product-image");
-  productImage.setAttribute("style", `background-image: url("${product.img}")`);
+  if (product?.img) {
+    productImage.setAttribute(
+      "style",
+      `background-image: url("${product.img}")`
+    );
+  }
   productButton.appendChild(productImage);
 
   const productTitleContainer = document.createElement("div");
@@ -666,7 +667,9 @@ const createProductButton = (product) => {
 
   const productTitle = document.createElement("div");
   productTitle.classList.add("product-title");
-  productTitle.innerText = product.title;
+  if (product.title) {
+    productTitle.innerText = product.title;
+  }
   productTitleContainer.appendChild(productTitle);
 
   productButton.appendChild(productTitleContainer);
@@ -686,34 +689,46 @@ const createGalleryWidget = (
 
   const galleryWidgetTitle = document.createElement("div");
   galleryWidgetTitle.classList.add("gallery-widget-title");
-  galleryWidgetTitle.innerText = title;
+  if (title) {
+    galleryWidgetTitle.innerText = title;
+  }
   galleryWidget.appendChild(galleryWidgetTitle);
 
   if (isReview) {
     const galleryWidgetTextRreview = document.createElement("div");
     galleryWidgetTextRreview.classList.add("gallery-widget-text-review");
-    galleryWidgetTextRreview.innerText = text;
+    if (text) {
+      galleryWidgetTextRreview.innerText = text;
+    }
     galleryWidget.appendChild(galleryWidgetTextRreview);
   } else {
     const galleryWidgetTextTitle = document.createElement("div");
     galleryWidgetTextTitle.classList.add("gallery-widget-text-title");
-    galleryWidgetTextTitle.innerText = textTitle;
+    if (textTitle) {
+      galleryWidgetTextTitle.innerText = textTitle;
+    }
     galleryWidget.appendChild(galleryWidgetTextTitle);
 
     const galleryWidgetText = document.createElement("div");
     galleryWidgetText.classList.add("gallery-widget-text");
-    galleryWidgetText.innerText = text;
+    if (text) {
+      galleryWidgetText.innerText = text;
+    }
     galleryWidget.appendChild(galleryWidgetText);
   }
 
   const productLink = document.createElement("a");
-  productLink.setAttribute("href", product.url);
+  if (product?.url) {
+    productLink.setAttribute("href", product.url);
+  }
   productLink.setAttribute("target", "_blank");
   productLink.setAttribute("style", "text-decoration: none; color: white;");
   productLink.classList.add("pp-video-widget-track-link");
 
-  const productButton = createProductButton(product);
-  productLink.appendChild(productButton);
+  if (product) {
+    const productButton = createProductButton(product);
+    productLink.appendChild(productButton);
+  }
 
   galleryWidget.appendChild(productLink);
 
@@ -730,8 +745,10 @@ const createGallerySidebar = (video) => {
   const productInfoButton = document.createElement("div");
   productInfoButton.classList.add("product-info-button");
 
-  const rating = createRating(video.product.rating, video.product.rating_count);
-
+  let rating;
+  if (video.product.rating && video.product.rating_count) {
+    rating = createRating(video.product.rating, video.product.rating_count);
+  }
   const title = document.createElement("h4");
   title.classList.add("title");
   title.innerText = "About product";
@@ -739,9 +756,14 @@ const createGallerySidebar = (video) => {
   const productText = document.createElement("div");
   productText.classList.add("product-text");
   productText.setAttribute("id", "info-sidebar-product-text");
-  productText.innerText = video.product.summary;
+  if (video?.product?.summary) {
+    productText.innerText = video.product.summary;
+  }
 
-  const pros = createPros(video.product.pros);
+  let pros;
+  if (video?.product?.pros) {
+    pros = createPros(video.product.pros);
+  }
 
   const similarProductsWrapper = document.createElement("div");
   similarProductsWrapper.classList.add("similar-products-wrapper");
@@ -753,7 +775,10 @@ const createGallerySidebar = (video) => {
     similarProductsWrapper.appendChild(similarTitle);
 
     video.similar_products.forEach((product, index) => {
-      const rating = createRating(product.rating, product.rating_count);
+      let rating;
+      if (product.rating && product.rating_count) {
+        rating = createRating(product.rating, product.rating_count);
+      }
 
       const title = document.createElement("h4");
       title.classList.add("title");
@@ -762,16 +787,24 @@ const createGallerySidebar = (video) => {
       const productText = document.createElement("div");
       productText.classList.add("product-text");
       productText.setAttribute("id", "info-sidebar-product-text");
-      productText.innerText = product.summary;
+      if (product?.summary) {
+        productText.innerText = product.summary;
+      }
 
-      const pros = createPros(product.pros);
+      let pros;
+      if (product?.pros) {
+        pros = createPros(product.pros);
+      }
 
-      const btnLink = document.createElement("a");
-      btnLink.classList.add("btn-link");
-      btnLink.classList.add("pp-video-widget-track-link");
-      btnLink.setAttribute("href", `${product.url}`);
-      btnLink.setAttribute("target", "_blank");
-      btnLink.innerText = "View Deal";
+      let btnLink;
+      if (product?.url) {
+        btnLink = document.createElement("a");
+        btnLink.classList.add("btn-link");
+        btnLink.classList.add("pp-video-widget-track-link");
+        btnLink.setAttribute("href", `${product.url}`);
+        btnLink.setAttribute("target", "_blank");
+        btnLink.innerText = "View Deal";
+      }
 
       const onAmazonText = document.createElement("div");
       onAmazonText.classList.add("on-amazon-text");
@@ -809,41 +842,51 @@ const createGallerySidebar = (video) => {
   productInfoButton.appendChild(productContent);
   infoSidebar.appendChild(productInfoButton);
 
-  const reviewGalleryWidget = createGalleryWidget(
-    "Latest Review",
-    video.product.review,
-    null,
-    true,
-    video.product
-  );
-  infoSidebar.appendChild(reviewGalleryWidget);
+  if (video?.product?.review && video?.product) {
+    const reviewGalleryWidget = createGalleryWidget(
+      "Latest Review",
+      video.product.review,
+      null,
+      true,
+      video.product
+    );
+    infoSidebar.appendChild(reviewGalleryWidget);
+  }
 
-  const faqGalleryWidget = createGalleryWidget(
-    "FAQ",
-    video.product.faq.answer,
-    video.product.faq.question,
-    false,
-    video.product
-  );
-  infoSidebar.appendChild(faqGalleryWidget);
+  if (
+    video?.product?.faq?.answer &&
+    video?.product?.faq?.question &&
+    video?.product
+  ) {
+    const faqGalleryWidget = createGalleryWidget(
+      "FAQ",
+      video.product.faq.answer,
+      video.product.faq.question,
+      false,
+      video.product
+    );
+    infoSidebar.appendChild(faqGalleryWidget);
+  }
 
-  const bottomSection = document.createElement("div");
-  bottomSection.classList.add("bottom-section");
+  if (video?.product?.url) {
+    const bottomSection = document.createElement("div");
+    bottomSection.classList.add("bottom-section");
 
-  const btnLink = document.createElement("a");
-  btnLink.classList.add("btn-link");
-  btnLink.classList.add("pp-video-widget-track-link");
-  btnLink.setAttribute("href", `${video.product.url}`);
-  btnLink.setAttribute("target", "_blank");
-  btnLink.innerText = "View Deal";
-  bottomSection.appendChild(btnLink);
+    const btnLink = document.createElement("a");
+    btnLink.classList.add("btn-link");
+    btnLink.classList.add("pp-video-widget-track-link");
+    btnLink.setAttribute("href", `${video.product.url}`);
+    btnLink.setAttribute("target", "_blank");
+    btnLink.innerText = "View Deal";
+    bottomSection.appendChild(btnLink);
 
-  const onAmazonText = document.createElement("div");
-  onAmazonText.classList.add("on-amazon-text");
-  onAmazonText.innerText = "On Amazon";
-  bottomSection.appendChild(onAmazonText);
+    const onAmazonText = document.createElement("div");
+    onAmazonText.classList.add("on-amazon-text");
+    onAmazonText.innerText = "On Amazon";
+    bottomSection.appendChild(onAmazonText);
 
-  infoSidebar.appendChild(bottomSection);
+    infoSidebar.appendChild(bottomSection);
+  }
 
   gallerySidebar.appendChild(infoSidebar);
 
@@ -867,7 +910,9 @@ const createPopUpMobileWidget = (product) => {
 
   const productTitle = document.createElement("div");
   productTitle.classList.add("product-title");
-  productTitle.innerText = product.title;
+  if (product?.title) {
+    productTitle.innerText = product.title;
+  }
   productTitleContainer.appendChild(productTitle);
 
   const brandName = document.createElement("div");
@@ -886,7 +931,9 @@ const createPopUpMobileWidget = (product) => {
 
   const brand = document.createElement("div");
   brand.classList.add("brand");
-  brand.innerText = product.brand;
+  if (product?.brand) {
+    brand.innerText = product.brand;
+  }
   brandName.appendChild(brand);
 
   productTitleContainer.appendChild(brandName);
@@ -909,7 +956,9 @@ const createPopUpMobileWidget = (product) => {
   const btnShop = document.createElement("a");
   btnShop.classList.add("btn-shop");
   btnShop.classList.add("pp-video-widget-track-link");
-  btnShop.setAttribute("href", product.url);
+  if (product?.url) {
+    btnShop.setAttribute("href", product.url);
+  }
   btnShop.setAttribute("target", "_blank");
 
   const btnShopImg = document.createElement("img");
@@ -929,29 +978,39 @@ const createPopUpMobileWidget = (product) => {
   const popUpMobileWidgetContent = document.createElement("div");
   popUpMobileWidgetContent.classList.add("pop-up-mobile-widget-content");
 
-  const rating = createRating(product.rating, product.rating_count);
-  popUpMobileWidgetContent.appendChild(rating);
+  let rating;
+  if (product?.rating && product?.rating_count) {
+    rating = createRating(product.rating, product.rating_count);
+    popUpMobileWidgetContent.appendChild(rating);
+  }
 
-  const productText = document.createElement("div");
-  productText.classList.add("product-text");
-  productText.innerText = product.summary;
-  popUpMobileWidgetContent.appendChild(productText);
+  if (product?.summary) {
+    const productText = document.createElement("div");
+    productText.classList.add("product-text");
+    productText.innerText = product.summary;
+    popUpMobileWidgetContent.appendChild(productText);
+  }
 
-  const pros = createPros(product.pros);
-  popUpMobileWidgetContent.appendChild(pros);
+  let pros;
+  if (product?.pros) {
+    pros = createPros(product.pros);
+    popUpMobileWidgetContent.appendChild(pros);
+  }
 
-  const btnLink = document.createElement("a");
-  btnLink.classList.add("btn-link");
-  btnLink.classList.add("pp-video-widget-track-link");
-  btnLink.setAttribute("href", `${product.url}`);
-  btnLink.setAttribute("target", "_blank");
-  btnLink.innerText = "View Deal";
-  popUpMobileWidgetContent.appendChild(btnLink);
+  if (product?.url) {
+    const btnLink = document.createElement("a");
+    btnLink.classList.add("btn-link");
+    btnLink.classList.add("pp-video-widget-track-link");
+    btnLink.setAttribute("href", `${product.url}`);
+    btnLink.setAttribute("target", "_blank");
+    btnLink.innerText = "View Deal";
+    popUpMobileWidgetContent.appendChild(btnLink);
 
-  const onAmazonText = document.createElement("div");
-  onAmazonText.classList.add("on-amazon-text");
-  onAmazonText.innerText = "On Amazon";
-  popUpMobileWidgetContent.appendChild(onAmazonText);
+    const onAmazonText = document.createElement("div");
+    onAmazonText.classList.add("on-amazon-text");
+    onAmazonText.innerText = "On Amazon";
+    popUpMobileWidgetContent.appendChild(onAmazonText);
+  }
 
   popUpMobileWidgetContainer.appendChild(popUpMobileWidgetContent);
 
@@ -1098,22 +1157,6 @@ const createGallery = () => {
   const controlsSwiperButtons = document.createElement("div");
   controlsSwiperButtons.classList.add("swiper-buttons");
 
-  // const controlsSwiperButtonNext = document.createElement("div");
-  // controlsSwiperButtonNext.classList.add("gallery-swiper-button-next");
-
-  // const controlsSwiperButtonNextImg = document.createElement("img");
-  // controlsSwiperButtonNextImg.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDExIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNNS4zNjg2OCAyLjI5NDk4TDEuMzY1MzIgNi4yOTgzNEwwLjIyMTczNyA1LjE1NDc2TDUuMzY4NjggMC4wMDc4MTIyOEwxMC41MTU2IDUuMTU0NzZMOS4zNzIwNCA2LjI5ODM0TDUuMzY4NjggMi4yOTQ5OFoiIGZpbGw9IndoaXRlIi8+DQo8L3N2Zz4NCg==";
-
-  // controlsSwiperButtonNext.appendChild(controlsSwiperButtonNextImg);
-
-  // const controlsSwiperButtonPrev = document.createElement("div");
-  // controlsSwiperButtonPrev.classList.add("gallery-swiper-button-prev");
-
-  // const controlsSwiperButtonPrevImg = document.createElement("img");
-  // controlsSwiperButtonPrevImg.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iNyIgdmlld0JveD0iMCAwIDExIDciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQo8cGF0aCBkPSJNNS4zNjg2OCAyLjI5NDk4TDEuMzY1MzIgNi4yOTgzNEwwLjIyMTczNyA1LjE1NDc2TDUuMzY4NjggMC4wMDc4MTIyOEwxMC41MTU2IDUuMTU0NzZMOS4zNzIwNCA2LjI5ODM0TDUuMzY4NjggMi4yOTQ5OFoiIGZpbGw9IndoaXRlIi8+DQo8L3N2Zz4NCg==";
-
-  // controlsSwiperButtonPrev.appendChild(controlsSwiperButtonPrevImg);
-
   controlsSwiperButtons.appendChild(gallerySwiperButtonNext);
   controlsSwiperButtons.appendChild(gallerySwiperButtonPrev);
 
@@ -1124,11 +1167,15 @@ const createGallery = () => {
   galleryMedia.appendChild(content);
   gallery.appendChild(galleryMedia);
 
-  const gallerySidebar = createGallerySidebar(videos[0]);
-  gallery.appendChild(gallerySidebar);
+  if (videos && videos.length) {
+    const gallerySidebar = createGallerySidebar(videos[0]);
+    gallery.appendChild(gallerySidebar);
+  }
 
-  const popUpMobileWidget = createPopUpMobileWidget(videos[0].product);
-  gallery.appendChild(popUpMobileWidget);
+  if (videos && videos.length && videos[0]?.product) {
+    const popUpMobileWidget = createPopUpMobileWidget(videos[0].product);
+    gallery.appendChild(popUpMobileWidget);
+  }
 
   galleryContainer.appendChild(gallery);
 
@@ -1140,11 +1187,13 @@ const addVideoWidget = () => {
 
   const body = document.querySelector("body");
 
-  const videoWidget = createVideoWidget(videos);
-  body.appendChild(videoWidget);
+  if (videos && videos.length) {
+    const videoWidget = createVideoWidget(videos);
+    body.appendChild(videoWidget);
 
-  const gallery = createGallery();
-  body.appendChild(gallery);
+    const gallery = createGallery();
+    body.appendChild(gallery);
+  }
 };
 
 addVideoWidget();
@@ -1298,41 +1347,49 @@ window.addEventListener("load", () => {
   let floatingVideos = false;
   if (document.querySelector(".floating-card-video")) floatingVideos = true;
 
-  galleryVideos.forEach((galleryVideo, i) => {
-    galleryVideo.addEventListener("timeupdate", updateVideoProgress);
-    galleryVideo.paramIndex = i;
-    galleryVideo.paramVideos = galleryVideos;
-    galleryVideo.paramProgressBars = progressBars;
-    galleryVideo.paramProgressFill = progressFill;
-    progressBars[i].addEventListener("click", skipAhead);
-    progressBars[i].paramIndex = i;
-    progressBars[i].paramVideos = galleryVideos;
-    progressBars[i].paramProgressFill = progressFill;
-  });
+  if (galleryVideos && galleryVideos.length) {
+    galleryVideos.forEach((galleryVideo, i) => {
+      galleryVideo.addEventListener("timeupdate", updateVideoProgress);
+      galleryVideo.paramIndex = i;
+      galleryVideo.paramVideos = galleryVideos;
+      galleryVideo.paramProgressBars = progressBars;
+      galleryVideo.paramProgressFill = progressFill;
+      progressBars[i].addEventListener("click", skipAhead);
+      progressBars[i].paramIndex = i;
+      progressBars[i].paramVideos = galleryVideos;
+      progressBars[i].paramProgressFill = progressFill;
+    });
+  }
 
-  playVideoBtns.forEach((btn, i) => {
-    btn.addEventListener("click", playCurrentVideo);
-    btn.paramIndex = i;
-    btn.paramVideos = galleryVideos;
-    btn.paramPlayIcons = playIcons;
-    btn.paramPauseIcons = pauseIcons;
-  });
+  if (playVideoBtns && playVideoBtns.length) {
+    playVideoBtns.forEach((btn, i) => {
+      btn.addEventListener("click", playCurrentVideo);
+      btn.paramIndex = i;
+      btn.paramVideos = galleryVideos;
+      btn.paramPlayIcons = playIcons;
+      btn.paramPauseIcons = pauseIcons;
+    });
+  }
 
-  galleryVideos.forEach((video, i) => {
-    video.addEventListener("click", playCurrentVideo);
-    video.paramIndex = i;
-    video.paramVideos = galleryVideos;
-    video.paramPlayIcons = playIcons;
-    video.paramPauseIcons = pauseIcons;
-  });
+  if (galleryVideos && galleryVideos.length) {
+    galleryVideos.forEach((video, i) => {
+      video.addEventListener("click", playCurrentVideo);
+      video.paramIndex = i;
+      video.paramVideos = galleryVideos;
+      video.paramPlayIcons = playIcons;
+      video.paramPauseIcons = pauseIcons;
+    });
+  }
 
-  muteBtns.forEach((btn, i) => {
-    btn.addEventListener("click", muteVideo);
-    btn.paramIndex = i;
-    btn.paramVideos = galleryVideos;
-    btn.paramSoundOnIcons = soundOnIcons;
-    btn.paramSoundOffIcons = soundOffIcons;
-  });
+  if (muteBtns && muteBtns.length) {
+    muteBtns.forEach((btn, i) => {
+      btn.addEventListener("click", muteVideo);
+      btn.paramIndex = i;
+      btn.paramVideos = galleryVideos;
+      btn.paramSoundOnIcons = soundOnIcons;
+      btn.paramSoundOffIcons = soundOffIcons;
+    });
+  }
 
   function updateVideoProgress(e) {
     const index = e.currentTarget.paramIndex;
@@ -1392,6 +1449,7 @@ window.addEventListener("load", () => {
       soundOnIcons[index].style.display = "none";
     }
   }
+
   const playVideo = (
     video,
     _currentTime = 0,
@@ -1660,19 +1718,21 @@ window.addEventListener("load", () => {
     `.${Video.CONTAINER_DYNAMIC}-progress-fill`
   );
 
-  dynamicVideos.forEach((dynamicVideo, i) => {
-    if (!floatingVideos) {
-      dynamicVideo.addEventListener("timeupdate", updateVideoProgress);
-      dynamicVideo.paramIndex = i;
-      dynamicVideo.paramVideos = dynamicVideos;
-      dynamicVideo.paramProgressBars = dynamicProgressBars;
-      dynamicVideo.paramProgressFill = dynamicProgressFill;
-      dynamicProgressBars[i].addEventListener("click", skipAhead);
-      dynamicProgressBars[i].paramIndex = i;
-      dynamicProgressBars[i].paramVideos = dynamicVideos;
-      dynamicProgressBars[i].paramProgressFill = dynamicProgressFill;
-    }
-  });
+  if (dynamicVideos && dynamicVideos.length) {
+    dynamicVideos.forEach((dynamicVideo, i) => {
+      if (!floatingVideos) {
+        dynamicVideo.addEventListener("timeupdate", updateVideoProgress);
+        dynamicVideo.paramIndex = i;
+        dynamicVideo.paramVideos = dynamicVideos;
+        dynamicVideo.paramProgressBars = dynamicProgressBars;
+        dynamicVideo.paramProgressFill = dynamicProgressFill;
+        dynamicProgressBars[i].addEventListener("click", skipAhead);
+        dynamicProgressBars[i].paramIndex = i;
+        dynamicProgressBars[i].paramVideos = dynamicVideos;
+        dynamicProgressBars[i].paramProgressFill = dynamicProgressFill;
+      }
+    });
+  }
 
   let dynamicMuteBtnsMobile = [];
   let dynamicSoundOnIconsMobile = [];
@@ -1752,13 +1812,15 @@ window.addEventListener("load", () => {
     }
   }
 
-  dynamicPlayVideoBtns.forEach((btn, i) => {
-    btn.addEventListener("click", playCurrentVideo);
-    btn.paramIndex = i;
-    btn.paramVideos = dynamicVideos;
-    btn.paramPlayIcons = dynamicPlayIcons;
-    btn.paramPauseIcons = dynamicPauseIcons;
-  });
+  if (dynamicPlayVideoBtns && dynamicPlayVideoBtns.length) {
+    dynamicPlayVideoBtns.forEach((btn, i) => {
+      btn.addEventListener("click", playCurrentVideo);
+      btn.paramIndex = i;
+      btn.paramVideos = dynamicVideos;
+      btn.paramPlayIcons = dynamicPlayIcons;
+      btn.paramPauseIcons = dynamicPauseIcons;
+    });
+  }
 
   const dynamicSwiper = new Swiper(".dynamic-video-slider", {
     loop: true,
@@ -1901,7 +1963,9 @@ window.addEventListener("load", () => {
     }
   };
 
-  crossIcons.forEach((icon) => icon.addEventListener("click", showPage));
+  if (crossIcons) {
+    crossIcons.forEach((icon) => icon.addEventListener("click", showPage));
+  }
 
   function showMedia() {
     gallerySwiper.enable();
@@ -1981,9 +2045,11 @@ window.addEventListener("load", () => {
       });
     });
 
-    lazyVideos.forEach((v) => {
-      lazyVideoObserver.observe(v);
-    });
+    if (lazyVideos) {
+      lazyVideos.forEach((v) => {
+        lazyVideoObserver.observe(v);
+      });
+    }
   }
 
   if (!window._carrickQueue) {
