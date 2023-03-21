@@ -1,6 +1,5 @@
 import Swiper from "swiper/bundle";
 import { styles } from "./styles.js";
-import { video } from "./mock-data.js";
 
 let videos = `{{__VIDEO_JSON__}}`;
 
@@ -569,9 +568,11 @@ const createProductButtonExpandable = (
   productContent.classList.add("product-content");
   productContent.setAttribute("id", `${containerName}-product-content`);
 
-  $elements.forEach(($element) => {
-    productContent.appendChild($element);
-  });
+  $elements
+    .filter(Boolean)
+    .forEach(($element) => {
+      productContent.appendChild($element);
+    });
 
   const script = document.createElement("script");
   script.textContent = `
