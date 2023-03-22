@@ -1,6 +1,9 @@
 import Swiper from "swiper/bundle";
 import { styles } from "./styles.js";
+
 import { video } from "./mock-data.js";
+
+// let videos = video.fullstar;
 
 let videos = `{{__VIDEO_JSON__}}`;
 
@@ -569,7 +572,7 @@ const createProductButtonExpandable = (
   productContent.classList.add("product-content");
   productContent.setAttribute("id", `${containerName}-product-content`);
 
-  $elements.forEach(($element) => {
+  $elements.filter(Boolean).forEach(($element) => {
     productContent.appendChild($element);
   });
 
@@ -749,21 +752,22 @@ const createGallerySidebar = (video) => {
   if (video.product.rating && video.product.rating_count) {
     rating = createRating(video.product.rating, video.product.rating_count);
   }
-  const title = document.createElement("h4");
-  title.classList.add("title");
-  title.innerText = "About product";
 
-  const productText = document.createElement("div");
-  productText.classList.add("product-text");
-  productText.setAttribute("id", "info-sidebar-product-text");
+  let title;
+  let productText;
+
   if (video?.product?.summary) {
+    title = document.createElement("h4");
+    title.classList.add("title");
+    title.innerText = "About product";
+
+    productText = document.createElement("div");
+    productText.classList.add("product-text");
+    productText.setAttribute("id", "info-sidebar-product-text");
     productText.innerText = video.product.summary;
   }
 
-  let pros;
-  if (video?.product?.pros) {
-    pros = createPros(video.product.pros);
-  }
+  let pros = video?.product?.pros ? createPros(video.product.pros) : [];
 
   const similarProductsWrapper = document.createElement("div");
   similarProductsWrapper.classList.add("similar-products-wrapper");
@@ -780,21 +784,20 @@ const createGallerySidebar = (video) => {
         rating = createRating(product.rating, product.rating_count);
       }
 
-      const title = document.createElement("h4");
-      title.classList.add("title");
-      title.innerText = "About product";
-
-      const productText = document.createElement("div");
-      productText.classList.add("product-text");
-      productText.setAttribute("id", "info-sidebar-product-text");
+      let title;
+      let productText;
       if (product?.summary) {
+        title = document.createElement("h4");
+        title.classList.add("title");
+        title.innerText = "About product";
+
+        productText = document.createElement("div");
+        productText.classList.add("product-text");
+        productText.setAttribute("id", "info-sidebar-product-text");
         productText.innerText = product.summary;
       }
 
-      let pros;
-      if (product?.pros) {
-        pros = createPros(product.pros);
-      }
+      let pros = product?.pros ? createPros(product.pros) : [];
 
       let btnLink;
       if (product?.url) {
@@ -991,11 +994,8 @@ const createPopUpMobileWidget = (product) => {
     popUpMobileWidgetContent.appendChild(productText);
   }
 
-  let pros;
-  if (product?.pros) {
-    pros = createPros(product.pros);
-    popUpMobileWidgetContent.appendChild(pros);
-  }
+  let pros = product?.pros ? createPros(product.pros) : [];
+  popUpMobileWidgetContent.appendChild(pros);
 
   if (product?.url) {
     const btnLink = document.createElement("a");
