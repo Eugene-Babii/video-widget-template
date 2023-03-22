@@ -1,8 +1,7 @@
 import Swiper from "swiper/bundle";
 import { styles } from "./styles.js";
 
-import { video } from "./mock-data.js";
-
+// import { video } from "./mock-data.js";
 // let videos = video.fullstar;
 
 let videos = `{{__VIDEO_JSON__}}`;
