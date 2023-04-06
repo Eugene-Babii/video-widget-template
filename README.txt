@@ -1,3 +1,5 @@
+npx webpack-cli b
+
 #video-widgets:
 
 oven-igniter -> https://www.oldhouseonline.com/review/review/best-oven-igniter/

@@ -2,7 +2,7 @@ import Swiper from "swiper/bundle";
 import { styles } from "./styles.js";
 
 // import { video } from "./mock-data.js";
-// let videos = video.fullstar;
+// let videos = video.oe;
 
 let videos = `{{__VIDEO_JSON__}}`;
 
@@ -572,7 +572,7 @@ const createProductButtonExpandable = (
   productContent.setAttribute("id", `${containerName}-product-content`);
 
   $elements.filter(Boolean).forEach(($element) => {
-    productContent.appendChild($element);
+    if ($element) productContent.appendChild($element);
   });
 
   const script = document.createElement("script");
@@ -766,7 +766,7 @@ const createGallerySidebar = (video) => {
     productText.innerText = video.product.summary;
   }
 
-  let pros = video?.product?.pros ? createPros(video.product.pros) : [];
+  let pros = video?.product?.pros ? createPros(video.product.pros) : null;
 
   const similarProductsWrapper = document.createElement("div");
   similarProductsWrapper.classList.add("similar-products-wrapper");
@@ -796,7 +796,7 @@ const createGallerySidebar = (video) => {
         productText.innerText = product.summary;
       }
 
-      let pros = product?.pros ? createPros(product.pros) : [];
+      let pros = product?.pros ? createPros(product.pros) : null;
 
       let btnLink;
       if (product?.url) {
@@ -993,7 +993,7 @@ const createPopUpMobileWidget = (product) => {
     popUpMobileWidgetContent.appendChild(productText);
   }
 
-  let pros = product?.pros ? createPros(product.pros) : [];
+  let pros = product?.pros ? createPros(product.pros) : null;
   popUpMobileWidgetContent.appendChild(pros);
 
   if (product?.url) {
